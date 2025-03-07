@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea Control</title>
+    <link rel="stylesheet" href="../assets/textarea.css">
+</head>
+<body>
+    <div class="custom-textarea-wrapper">
+        <textarea class="custom-textarea" 
+                  placeholder="Enter text here..."
+                  rows="5"
+                  maxlength="500"></textarea>
+        <div class="custom-textarea-clear" title="Clear"></div>
+        <div class="custom-textarea-count">0/500</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textareaWrappers = document.querySelectorAll('.custom-textarea-wrapper');
+
+            textareaWrappers.forEach(wrapper => {
+                const textarea = wrapper.querySelector('.custom-textarea');
+                const clearButton = wrapper.querySelector('.custom-textarea-clear');
+                const charCount = wrapper.querySelector('.custom-textarea-count');
+                const maxLength = textarea.getAttribute('maxlength');
+
+                // Update character count and wrapper class
+                function updateState() {
+                    const length = textarea.value.length;
+                    charCount.textContent = `${length}/${maxLength}`;
+                    wrapper.classList.toggle('has-value', length > 0);
+
+                    // Change count color when approaching limit
+                    if (length >= maxLength) {
+                        charCount.style.color = '#e74c3c';
+                    } else if (length >= maxLength * 0.9) {
+                        charCount.style.color = '#f39c12';
+                    } else {
+                        charCount.style.color = '#999';
+                    }
+                }
+
+                // Handle input changes
+                textarea.addEventListener('input', updateState);
+
+                // Handle clear button
+                clearButton.addEventListener('click', () => {
+                    if (!textarea.disabled) {
+                        textarea.value = '';
+                        textarea.focus();
+                        updateState();
+                        
+                        // Dispatch input and change events
+                        textarea.dispatchEvent(new Event('input'));
+                        textarea.dispatchEvent(new Event('change'));
+                    }
+                });
+
+                // Handle keyboard shortcuts
+                textarea.addEventListener('keydown', (e) => {
+                    // Ctrl+A or Cmd+A (Select All)
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+                        e.preventDefault();
+                        textarea.select();
+                    }
+                });
+
+                // Initial state
+                updateState();
+            });
+        });
+    </script>
+</body>
+</html> 

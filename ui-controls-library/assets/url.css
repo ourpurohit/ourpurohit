@@ -1,0 +1,92 @@
+.custom-url-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.custom-url {
+  width: 100%;
+  min-height: 28px;
+  padding: 4px 32px 4px 10px;
+  background: linear-gradient(160deg, #ffffff, #f5f5f5);
+  border: 1px solid rgba(165, 165, 165, 0.2);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #606060;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-shadow: 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.05),
+    -2px -2px 4px rgba(255, 255, 255, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.custom-url:hover {
+  background: linear-gradient(160deg, #ffffff, #f0f0f0);
+  border-color: rgba(153, 153, 153, 0.3);
+}
+
+.custom-url:focus {
+  /* background: linear-gradient(160deg, #f0f0f0, #e8e8e8); */
+  box-shadow: 
+     2px 2px 4px rgba(0, 0, 0, 0.05),
+     -2px -2px 4px rgba(255, 255, 255, 0.7);
+}
+
+.custom-url:disabled {
+  background: linear-gradient(160deg, #f8f8f8, #f0f0f0);
+  border-color: rgba(204, 204, 204, 0.2);
+  color: rgba(153, 153, 153, 0.8);
+  cursor: not-allowed;
+  box-shadow: 
+    1px 1px 3px rgba(0, 0, 0, 0.03),
+    -1px -1px 3px rgba(255, 255, 255, 0.5);
+}
+
+.custom-url::placeholder {
+  color: rgba(96, 96, 96, 0.5);
+}
+
+.custom-url-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #606060;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.custom-url-clear::before {
+  content: '×';
+  line-height: 1;
+  font-weight: 600;
+}
+
+.custom-url-clear:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.custom-url:not(:placeholder-shown) + .custom-url-clear {
+  display: flex;
+}
+
+/* URL validation styles */
+.custom-url:valid {
+  border-color: rgba(75, 181, 67, 0.3);
+}
+
+.custom-url:invalid:not(:placeholder-shown) {
+  border-color: rgba(229, 57, 53, 0.3);
+} 

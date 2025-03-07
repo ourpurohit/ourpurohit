@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Controls Library - Components</title>
+  <link rel="stylesheet" href="./assets/index.css">
+  <link rel="stylesheet" href="./assets/layout.css">
+  <link rel="stylesheet" href="./assets/button.css">
+  <link rel="stylesheet" href="./assets/checkbox.css">
+  <link rel="stylesheet" href="./assets/dropdown.css">
+  <link rel="stylesheet" href="./assets/radio.css">
+  <link rel="stylesheet" href="./assets/url.css">
+  <link rel="stylesheet" href="./assets/file-select.css">
+  <link rel="stylesheet" href="./assets/number.css">
+  <link rel="stylesheet" href="./assets/range.css">
+  <link rel="stylesheet" href="./assets/email.css">
+  <link rel="stylesheet" href="./assets/chips.css">
+  <link rel="stylesheet" href="./assets/time.css">
+  <link rel="stylesheet" href="./assets/week.css">
+  <link rel="stylesheet" href="./assets/month.css">
+  <link rel="stylesheet" href="./assets/textarea.css">
+  <link rel="stylesheet" href="./assets/password.css">
+  <link rel="stylesheet" href="./assets/text.css">
+  <link rel="stylesheet" href="./assets/list.css">
+  <link rel="stylesheet" href="./assets/profile-card.css">
+  <link rel="stylesheet" href="./assets/vertical-menu.css">
+  <link rel="stylesheet" href="./assets/header.css">
+  <link rel="stylesheet" href="./assets/accordion.css">
+  <link rel="stylesheet" href="./assets/alert.css">
+  <link rel="stylesheet" href="./assets/toast.css">
+  <link rel="stylesheet" href="./assets/label.css">
+  <link rel="stylesheet" href="./assets/badge.css">
+  <link rel="stylesheet" href="./assets/legend.css">
+  <link rel="stylesheet" href="./assets/fieldset.css">
+  <link rel="stylesheet" href="./assets/close-button.css">
+  <link rel="stylesheet" href="./assets/list-group.css">
+  <link rel="stylesheet" href="./assets/modal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Including Layout Component -->
+  <main>
+    <h1>UI Controls Library</h1>
+    <section>
+      <h2>Button Components</h2>
+      <!-- Layout Component with Buttons -->
+      <div class="grid">
+        <!-- Button Components -->
+        <button class="custom-button">
+          <span>Button</span>
+        </button>
+
+        <button class="custom-button" disabled>
+          <span>Disabled</span>
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Checkbox Components</h2>
+      <div class="checkbox-grid">
+        <!-- Checkbox Components -->
+        <label class="custom-checkbox-wrapper">
+          <input type="checkbox">
+          <div class="custom-checkbox"></div>
+          <span>Normal Checkbox</span>
+        </label>
+
+        <label class="custom-checkbox-wrapper">
+          <input type="checkbox" checked>
+          <div class="custom-checkbox"></div>
+          <span>Checked Checkbox</span>
+        </label>
+
+        <label class="custom-checkbox-wrapper">
+          <input type="checkbox" disabled>
+          <div class="custom-checkbox"></div>
+          <span>Disabled Checkbox</span>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Radio Button Components</h2>
+      <div class="checkbox-grid">
+        <label class="custom-radio-wrapper">
+          <input type="radio" name="demo" value="option1">
+          <div class="custom-radio"></div>
+          <span>Normal Radio</span>
+        </label>
+
+        <label class="custom-radio-wrapper">
+          <input type="radio" name="demo" value="option2" checked>
+          <div class="custom-radio"></div>
+          <span>Checked Radio</span>
+        </label>
+
+        <label class="custom-radio-wrapper">
+          <input type="radio" name="demo" value="option3" disabled>
+          <div class="custom-radio"></div>
+          <span>Disabled Radio</span>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Dropdown Components</h2>
+      <div class="grid">
+        <div class="custom-select-wrapper">
+          <div class="custom-select" tabindex="0">
+            <span>Select an option</span>
+            <div class="custom-select-clear"></div>
+          </div>
+          <div class="custom-options">
+            <div class="custom-option" data-value="option1">Option 1</div>
+            <div class="custom-option" data-value="option2">Option 2</div>
+            <div class="custom-option" data-value="option3">Option 3</div>
+            <div class="custom-option" data-value="option4">Option 4</div>
+            <div class="custom-option" data-value="option5">Option 5</div>
+          </div>
+        </div>
+        <div class="custom-select-wrapper">
+          <div class="custom-select" tabindex="0" disabled>
+            <span>Disabled dropdown</span>
+            <div class="custom-select-clear"></div>
+          </div>
+          <div class="custom-options">
+            <div class="custom-option" data-value="option1">Option 1</div>
+            <div class="custom-option" data-value="option2">Option 2</div>
+            <div class="custom-option" data-value="option3">Option 3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>URL Input Components</h2>
+      <div class="checkbox-grid">
+        <div class="custom-url-wrapper">
+            <input type="url" 
+                   class="custom-url" 
+                   placeholder="Enter URL"
+                   pattern="https?://.+"
+                   title="Include http:// or https://">
+            <div class="custom-url-clear"></div>
+        </div>
+
+        <div class="custom-url-wrapper">
+            <input type="url" 
+                   class="custom-url" 
+                   placeholder="Disabled URL input"
+                   pattern="https?://.+"
+                   title="Include http:// or https://"
+                   disabled>
+            <div class="custom-url-clear"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>File Select Components</h2>
+      <div class="checkbox-grid">
+        <div class="custom-file-wrapper">
+            <input type="file" class="custom-file-input" id="fileInput1">
+            <label for="fileInput1" class="custom-file-button">Choose File</label>
+            <span class="custom-file-name"></span>
+            <div class="custom-file-clear"></div>
+        </div>
+
+        <div class="custom-file-wrapper">
+            <input type="file" class="custom-file-input" id="fileInput2" disabled>
+            <label for="fileInput2" class="custom-file-button" disabled>Disabled</label>
+            <span class="custom-file-name"></span>
+            <div class="custom-file-clear"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Number Input Components</h2>
+      <div class="checkbox-grid">
+        <div class="custom-number-wrapper">
+            <input type="number" 
+                   class="custom-number-input" 
+                   placeholder="Enter number"
+                   min="0"
+                   max="100"
+                   step="1">
+            <div class="custom-number-controls">
+                <button class="custom-number-button increment">▲</button>
+                <button class="custom-number-button decrement">▼</button>
+            </div>
+            <div class="custom-number-clear"></div>
+        </div>
+
+        <div class="custom-number-wrapper">
+            <input type="number" 
+                   class="custom-number-input" 
+                   placeholder="Disabled number input"
+                   min="0"
+                   max="100"
+                   step="1"
+                   disabled>
+            <div class="custom-number-controls">
+                <button class="custom-number-button increment">▲</button>
+                <button class="custom-number-button decrement">▼</button>
+            </div>
+            <div class="custom-number-clear"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Range Input Components</h2>
+      <div class="checkbox-grid">
+        <div class="custom-range-wrapper">
+            <div class="custom-range-values">
+                <span>0</span>
+                <span>50</span>
+                <span>100</span>
+            </div>
+            <input type="range" 
+                   class="custom-range-input" 
+                   min="0" 
+                   max="100" 
+                   step="1"
+                   value="50">
+            <div class="custom-range-value">50</div>
+        </div>
+
+        <div class="custom-range-wrapper">
+            <div class="custom-range-values">
+                <span>0</span>
+                <span>50</span>
+                <span>100</span>
+            </div>
+            <input type="range" 
+                   class="custom-range-input" 
+                   min="0" 
+                   max="100" 
+                   step="1"
+                   value="50"
+                   disabled>
+            <div class="custom-range-value">50</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Email Input Components</h2>
+      <div class="checkbox-grid">
+        <div class="custom-email-wrapper">
+            <input type="email" 
+                   class="custom-email" 
+                   placeholder="Enter email"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                   title="Please enter a valid email address">
+            <div class="custom-email-clear"></div>
+        </div>
+
+        <div class="custom-email-wrapper">
+            <input type="email" 
+                   class="custom-email" 
+                   placeholder="Disabled email input"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                   title="Please enter a valid email address"
+                   disabled>
+            <div class="custom-email-clear"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Chips Components</h2>
+      <div class="checkbox-grid">
+        <div class="custom-chips-wrapper">
+            <div class="custom-chip">
+                Example<span class="custom-chip-remove"></span>
+            </div>
+            <input type="text" class="custom-chips-input" placeholder="Type and press Enter">
+        </div>
+
+        <div class="custom-chips-wrapper disabled">
+            <div class="custom-chip">
+                Disabled<span class="custom-chip-remove"></span>
+            </div>
+            <input type="text" class="custom-chips-input" placeholder="Disabled chips input">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Time Input Components</h2>
+      <div class="checkbox-grid">
+        <div class="custom-time-wrapper">
+            <input type="time" 
+                   class="custom-time" 
+                   placeholder="Select time"
+                   step="60">
+            <div class="custom-time-controls">
+                <button class="custom-time-button increment">▲</button>
+                <button class="custom-time-button decrement">▼</button>
+            </div>
+            <div class="custom-time-clear"></div>
+            <div class="custom-time-clock"></div>
+        </div>
+
+        <div class="custom-time-wrapper">
+            <input type="time" 
+                   class="custom-time" 
+                   placeholder="Disabled time input"
+                   step="60"
+                   disabled>
+            <div class="custom-time-controls">
+                <button class="custom-time-button increment">▲</button>
+                <button class="custom-time-button decrement">▼</button>
+            </div>
+            <div class="custom-time-clear"></div>
+            <div class="custom-time-clock"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Week Input Components -->
+    <section class="component-section">
+        <h2>Week Input Components</h2>
+        <div class="component-row">
+            <div class="custom-week-wrapper">
+                <input type="week" class="custom-week" id="weekInput" placeholder="Select week">
+                <div class="custom-week-controls">
+                    <div class="custom-week-button increment" title="Increment week">▲</div>
+                    <div class="custom-week-button decrement" title="Decrement week">▼</div>
+                </div>
+                <div class="custom-week-clear" title="Clear"></div>
+                <div class="custom-week-calendar" title="Select week"></div>
+            </div>
+            <div class="custom-week-wrapper">
+                <input type="week" class="custom-week" id="weekInputDisabled" placeholder="Disabled week input" disabled>
+                <div class="custom-week-controls">
+                    <div class="custom-week-button increment" title="Increment week">▲</div>
+                    <div class="custom-week-button decrement" title="Decrement week">▼</div>
+                </div>
+                <div class="custom-week-clear" title="Clear"></div>
+                <div class="custom-week-calendar" title="Select week"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Month Input Components -->
+    <section class="component-section">
+        <h2>Month Input Components</h2>
+        <div class="component-row">
+            <div class="custom-month-wrapper">
+                <input type="month" class="custom-month" id="monthInput" placeholder="Select month">
+                <div class="custom-month-controls">
+                    <div class="custom-month-button increment" title="Increment month">▲</div>
+                    <div class="custom-month-button decrement" title="Decrement month">▼</div>
+                </div>
+                <div class="custom-month-clear" title="Clear"></div>
+                <div class="custom-month-calendar" title="Select month"></div>
+            </div>
+            <div class="custom-month-wrapper">
+                <input type="month" class="custom-month" id="monthInputDisabled" placeholder="Disabled month input" disabled>
+                <div class="custom-month-controls">
+                    <div class="custom-month-button increment" title="Increment month">▲</div>
+                    <div class="custom-month-button decrement" title="Decrement month">▼</div>
+                </div>
+                <div class="custom-month-clear" title="Clear"></div>
+                <div class="custom-month-calendar" title="Select month"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Textarea Input Components -->
+    <section class="component-section">
+        <h2>Textarea Input Components</h2>
+        <div class="component-row">
+            <div class="custom-textarea-wrapper">
+                <textarea class="custom-textarea" 
+                          placeholder="Enter text here..."
+                          rows="5"
+                          maxlength="500"></textarea>
+                <div class="custom-textarea-clear" title="Clear"></div>
+                <div class="custom-textarea-count">0/500</div>
+            </div>
+            <div class="custom-textarea-wrapper">
+                <textarea class="custom-textarea" 
+                          placeholder="Disabled textarea input"
+                          rows="5"
+                          maxlength="500"
+                          disabled></textarea>
+                <div class="custom-textarea-clear" title="Clear"></div>
+                <div class="custom-textarea-count">0/500</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Password Input Components -->
+    <section class="component-section">
+        <h2>Password Input Components</h2>
+        <div class="component-row">
+            <div class="custom-password-wrapper">
+                <input type="password" 
+                       class="custom-password" 
+                       placeholder="Enter password"
+                       minlength="8"
+                       autocomplete="new-password">
+                <div class="custom-password-clear" title="Clear"></div>
+                <div class="custom-password-toggle" title="Toggle password visibility"></div>
+                <div class="custom-password-strength"></div>
+            </div>
+            <div class="custom-password-wrapper">
+                <input type="password" 
+                       class="custom-password" 
+                       placeholder="Disabled password input"
+                       minlength="8"
+                       autocomplete="new-password"
+                       disabled>
+                <div class="custom-password-clear" title="Clear"></div>
+                <div class="custom-password-toggle" title="Toggle password visibility"></div>
+                <div class="custom-password-strength"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text Input Components -->
+    <section class="component-section">
+        <h2>Text Input Components</h2>
+        <div class="component-row">
+            <div class="custom-text-wrapper">
+                <input type="text" 
+                       class="custom-text" 
+                       placeholder="Enter text">
+                <div class="custom-text-clear" title="Clear"></div>
+            </div>
+            <div class="custom-text-wrapper">
+                <input type="text" 
+                       class="custom-text" 
+                       placeholder="Disabled text input"
+                       disabled>
+                <div class="custom-text-clear" title="Clear"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- List Components -->
+    <section class="component-section">
+        <h2>List Components</h2>
+        <div class="component-row">
+            <div class="custom-list-wrapper empty">
+                <input type="text" 
+                       class="custom-list-input" 
+                       placeholder="Enter item and press Enter">
+                <div class="custom-list-type" title="Toggle list type"></div>
+                <ul class="custom-list-items"></ul>
+            </div>
+            <div class="custom-list-wrapper empty disabled">
+                <input type="text" 
+                       class="custom-list-input" 
+                       placeholder="Disabled list input"
+                       disabled>
+                <div class="custom-list-type" title="Toggle list type"></div>
+                <ul class="custom-list-items"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Card Components -->
+    <section class="component-section">
+        <h2>Profile Card Components</h2>
+        <div class="component-row">
+            <div class="custom-profile-card">
+                <div class="custom-profile-avatar">
+                    <img src="./images/pandit.png" alt="Profile Picture">
+                    <div class="custom-profile-status online"></div>
+                </div>
+                
+                <div class="custom-profile-info">
+                    <h2 class="custom-profile-name">John Doe</h2>
+                    <p class="custom-profile-title">Senior Developer</p>
+                    <p class="custom-profile-bio">Passionate about creating beautiful and functional user interfaces with modern web technologies.</p>
+                </div>
+
+                <div class="custom-profile-stats">
+                    <div class="custom-profile-stat">
+                        <div class="custom-profile-stat-value">128</div>
+                        <div class="custom-profile-stat-label">Projects</div>
+                    </div>
+                    <div class="custom-profile-stat">
+                        <div class="custom-profile-stat-value">12.8k</div>
+                        <div class="custom-profile-stat-label">Followers</div>
+                    </div>
+                    <div class="custom-profile-stat">
+                        <div class="custom-profile-stat-value">4.8</div>
+                        <div class="custom-profile-stat-label">Rating</div>
+                    </div>
+                </div>
+
+                <div class="custom-profile-actions">
+                    <button class="custom-profile-button">Follow</button>
+                    <button class="custom-profile-button">Message</button>
+                </div>
+
+                <div class="custom-profile-social">
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="custom-profile-card disabled">
+                <div class="custom-profile-avatar">
+                    <img src="./images/pandit.png" alt="Profile Picture">
+                    <div class="custom-profile-status offline"></div>
+                </div>
+                
+                <div class="custom-profile-info">
+                    <h2 class="custom-profile-name">Jane Smith</h2>
+                    <p class="custom-profile-title">UX Designer</p>
+                    <p class="custom-profile-bio">Creating meaningful and delightful user experiences through thoughtful design solutions.</p>
+                </div>
+
+                <div class="custom-profile-stats">
+                    <div class="custom-profile-stat">
+                        <div class="custom-profile-stat-value">85</div>
+                        <div class="custom-profile-stat-label">Projects</div>
+                    </div>
+                    <div class="custom-profile-stat">
+                        <div class="custom-profile-stat-value">9.2k</div>
+                        <div class="custom-profile-stat-label">Followers</div>
+                    </div>
+                    <div class="custom-profile-stat">
+                        <div class="custom-profile-stat-value">4.9</div>
+                        <div class="custom-profile-stat-label">Rating</div>
+                    </div>
+                </div>
+
+                <div class="custom-profile-actions">
+                    <button class="custom-profile-button">Follow</button>
+                    <button class="custom-profile-button">Message</button>
+                </div>
+
+                <div class="custom-profile-social">
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="custom-profile-social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tile Card Components -->
+    <section class="component-section">
+        <h2>Tile Card Components</h2>
+        <div class="custom-tile-grid">
+            <!-- Active Tile -->
+            <div class="custom-tile-card">
+                <div class="custom-tile-thumb">
+                    <img src="./images/pandit.png" alt="Pandit Profile">
+                </div>
+                <div class="custom-tile-url">https://project-example.com/dashboard</div>
+                <p class="custom-tile-description">A modern web application built with React and Node.js, featuring real-time updates and cloud integration.</p>
+            </div>
+
+            <!-- Another Active Tile -->
+            <div class="custom-tile-card">
+                <div class="custom-tile-thumb">
+                    <img src="./images/pandit.png" alt="Pandit Profile">
+                </div>
+                <div class="custom-tile-url">https://another-project.example.com/home</div>
+                <p class="custom-tile-description">An innovative dashboard interface with advanced analytics and data visualization features.</p>
+            </div>
+
+            <!-- Disabled Tile -->
+            <div class="custom-tile-card disabled">
+                <div class="custom-tile-thumb">
+                    <img src="./images/pandit.png" alt="Pandit Profile">
+                </div>
+                <div class="custom-tile-url">https://archived.example.com/project</div>
+                <p class="custom-tile-description">This project has been archived. Contact admin for access to project files and documentation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vertical Menu Components -->
+    <section class="component-section">
+        <h2>Vertical Menu Components</h2>
+        <div class="component-row">
+            <!-- Active Menu -->
+            <nav class="custom-vertical-menu">
+                <div class="custom-vertical-menu-header">Main Navigation</div>
+                <ul class="custom-vertical-menu-list">
+                    <li class="custom-vertical-menu-item">
+                        <a href="#" class="custom-vertical-menu-link active">
+                            <span class="custom-vertical-menu-icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                            <span class="custom-vertical-menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    
+                    <li class="custom-vertical-menu-item">
+                        <a href="#" class="custom-vertical-menu-link">
+                            <span class="custom-vertical-menu-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="custom-vertical-menu-text">Messages</span>
+                            <span class="custom-vertical-menu-badge">5</span>
+                        </a>
+                    </li>
+
+                    <li class="custom-vertical-menu-item">
+                        <a href="#" class="custom-vertical-menu-link">
+                            <span class="custom-vertical-menu-icon">
+                                <i class="fas fa-folder"></i>
+                            </span>
+                            <span class="custom-vertical-menu-text">Projects</span>
+                            <span class="custom-vertical-menu-expand">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </a>
+                        <ul class="custom-vertical-submenu">
+                            <li>
+                                <a href="#" class="custom-vertical-menu-link">
+                                    <span class="custom-vertical-menu-text">Active Projects</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="custom-vertical-menu-link">
+                                    <span class="custom-vertical-menu-text">Archived Projects</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <hr class="custom-vertical-menu-divider">
+
+                    <div class="custom-vertical-menu-header">Settings</div>
+                    
+                    <li class="custom-vertical-menu-item">
+                        <a href="#" class="custom-vertical-menu-link">
+                            <span class="custom-vertical-menu-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <span class="custom-vertical-menu-text">Profile</span>
+                        </a>
+                    </li>
+
+                    <li class="custom-vertical-menu-item">
+                        <a href="#" class="custom-vertical-menu-link disabled">
+                            <span class="custom-vertical-menu-icon">
+                                <i class="fas fa-cog"></i>
+                            </span>
+                            <span class="custom-vertical-menu-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Disabled Menu -->
+            <nav class="custom-vertical-menu" style="opacity: 0.6; pointer-events: none;">
+                <div class="custom-vertical-menu-header">Disabled Menu</div>
+                <ul class="custom-vertical-menu-list">
+                    <li class="custom-vertical-menu-item">
+                        <a href="#" class="custom-vertical-menu-link">
+                            <span class="custom-vertical-menu-icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                            <span class="custom-vertical-menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    
+                    <li class="custom-vertical-menu-item">
+                        <a href="#" class="custom-vertical-menu-link">
+                            <span class="custom-vertical-menu-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="custom-vertical-menu-text">Messages</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Header Components -->
+    <section class="component-section">
+        <h2>Header Components</h2>
+        <div class="component-row">
+            <!-- Active Header -->
+            <header class="custom-header">
+                <div class="custom-header-content">
+                    <div class="custom-header-logo">
+                        <img src="./images/pandit.png" alt="Logo">
+                    </div>
+                    <div class="custom-header-profile">
+                        <div class="custom-header-profile-avatar">
+                            <img src="./images/pandit.png" alt="Profile">
+                        </div>
+                        <div class="custom-header-profile-dropdown">
+                            <a href="#" class="custom-header-profile-dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="#" class="custom-header-profile-dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                            <div class="custom-header-profile-dropdown-divider"></div>
+                            <a href="#" class="custom-header-profile-dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+    </section>
+
+    <!-- Accordion Components -->
+    <section class="component-section">
+        <h2>Accordion Components</h2>
+        <div class="component-row">
+            <!-- Active Accordion -->
+            <div class="custom-accordion">
+                <div class="custom-accordion-item">
+                    <div class="custom-accordion-header">
+                        <span class="custom-accordion-title">Getting Started</span>
+                        <div class="custom-accordion-icon"></div>
+                    </div>
+                    <div class="custom-accordion-content">
+                        Learn how to get started with our UI components library. This guide will walk you through the installation process and basic usage of our components.
+                    </div>
+                </div>
+
+                <div class="custom-accordion-item">
+                    <div class="custom-accordion-header">
+                        <span class="custom-accordion-title">Components</span>
+                        <div class="custom-accordion-icon"></div>
+                    </div>
+                    <div class="custom-accordion-content">
+                        Explore our comprehensive collection of UI components, including buttons, inputs, cards, and more. Each component is designed with neumorphic styling and accessibility in mind.
+                    </div>
+                </div>
+
+                <div class="custom-accordion-item">
+                    <div class="custom-accordion-header">
+                        <span class="custom-accordion-title">Customization</span>
+                        <div class="custom-accordion-icon"></div>
+                    </div>
+                    <div class="custom-accordion-content">
+                        Customize the appearance and behavior of components to match your project's needs. Our components support extensive customization through CSS variables and modifiers.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disabled Accordion -->
+            <div class="custom-accordion">
+                <div class="custom-accordion-item disabled">
+                    <div class="custom-accordion-header">
+                        <span class="custom-accordion-title">Disabled Section</span>
+                        <div class="custom-accordion-icon"></div>
+                    </div>
+                    <div class="custom-accordion-content">
+                        This section is currently disabled and cannot be accessed.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alert Components -->
+    <section class="component-section">
+        <h2>Alert Components</h2>
+        <div class="component-row">
+            <div class="grid">
+                <!-- Success Alert Button -->
+                <button class="custom-button" onclick="showAlert('success', 'Success! Your changes have been saved.', 'fas fa-check')">
+                    <span>Show Success Alert</span>
+                </button>
+
+                <!-- Warning Alert Button -->
+                <button class="custom-button" onclick="showAlert('warning', 'Warning! Please save your changes before leaving.', 'fas fa-exclamation')">
+                    <span>Show Warning Alert</span>
+                </button>
+
+                <!-- Error Alert Button -->
+                <button class="custom-button" onclick="showAlert('error', 'Error! Something went wrong. Please try again.', 'fas fa-times')">
+                    <span>Show Error Alert</span>
+                </button>
+
+                <!-- Info Alert Button -->
+                <button class="custom-button" onclick="showAlert('info', 'Info: New updates are available for your system.', 'fas fa-info')">
+                    <span>Show Info Alert</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Message Components -->
+    <section class="component-section">
+        <h2>Toast Message Components</h2>
+        <div class="component-row">
+            <div class="grid">
+                <!-- Success Toast Button -->
+                <button class="custom-button" onclick="showToast('success', 'Success! Your changes have been saved.', 'fas fa-check')">
+                    <span>Show Success Toast</span>
+                </button>
+
+                <!-- Warning Toast Button -->
+                <button class="custom-button" onclick="showToast('warning', 'Warning! Please save your changes before leaving.', 'fas fa-exclamation')">
+                    <span>Show Warning Toast</span>
+                </button>
+
+                <!-- Error Toast Button -->
+                <button class="custom-button" onclick="showToast('error', 'Error! Something went wrong. Please try again.', 'fas fa-times')">
+                    <span>Show Error Toast</span>
+                </button>
+
+                <!-- Info Toast Button -->
+                <button class="custom-button" onclick="showToast('info', 'Info: New updates are available for your system.', 'fas fa-info')">
+                    <span>Show Info Toast</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container (for dynamic toasts) -->
+    <div id="toastContainer" class="custom-toast-container"></div>
+
+    <!-- Alert Container (for dynamic alerts) -->
+    <div id="alertContainer"></div>
+
+    <!-- Label Components -->
+    <section class="component-section">
+        <h2>Label Components</h2>
+        <div class="component-row">
+            <!-- Default Labels -->
+            <div class="custom-label-wrapper">
+                <span class="custom-label">Default Label</span>
+                <span class="custom-label required">Required Label</span>
+            </div>
+
+            <!-- Label Types -->
+            <div class="custom-label-wrapper">
+                <span class="custom-label primary">Primary Label</span>
+                <span class="custom-label success">Success Label</span>
+                <span class="custom-label warning">Warning Label</span>
+                <span class="custom-label error">Error Label</span>
+            </div>
+
+            <!-- Label Sizes -->
+            <div class="custom-label-wrapper">
+                <span class="custom-label small">Small Label</span>
+                <span class="custom-label">Regular Label</span>
+                <span class="custom-label large">Large Label</span>
+            </div>
+
+            <!-- Disabled Label -->
+            <div class="custom-label-wrapper">
+                <span class="custom-label disabled">Disabled Label</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badge Components -->
+    <section class="component-section">
+        <h2>Badge Components</h2>
+        <div class="component-row">
+            <!-- Default Badges -->
+            <div class="grid">
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge">1</span>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <button class="custom-button">
+                        <span>Notifications</span>
+                        <span class="custom-badge top-right">5</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Badge Types -->
+            <div class="grid">
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge primary">Primary</span>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge success">Success</span>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge warning">Warning</span>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge error">Error</span>
+                </div>
+            </div>
+
+            <!-- Badge Sizes -->
+            <div class="grid">
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge small">Small</span>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge">Regular</span>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge large">Large</span>
+                </div>
+            </div>
+
+            <!-- Badge Variants -->
+            <div class="grid">
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge outline primary">Outline</span>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge dot primary top-right"></span>
+                    <button class="custom-button">Status</button>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge max-value">99</span>
+                </div>
+            </div>
+
+            <!-- Badge Positions -->
+            <div class="grid">
+                <div class="custom-badge-wrapper">
+                    <button class="custom-button">
+                        <span>Top Right</span>
+                        <span class="custom-badge primary top-right">1</span>
+                    </button>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <button class="custom-button">
+                        <span>Bottom Right</span>
+                        <span class="custom-badge success bottom-right">2</span>
+                    </button>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <button class="custom-button">
+                        <span>Top Left</span>
+                        <span class="custom-badge warning top-left">3</span>
+                    </button>
+                </div>
+                <div class="custom-badge-wrapper">
+                    <button class="custom-button">
+                        <span>Bottom Left</span>
+                        <span class="custom-badge error bottom-left">4</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Disabled Badge -->
+            <div class="grid">
+                <div class="custom-badge-wrapper">
+                    <span class="custom-badge disabled">Disabled</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legend Components -->
+    <section class="component-section">
+        <h2>Legend Components</h2>
+        <div class="component-row">
+            <!-- Basic Legend -->
+            <div class="custom-legend bordered">
+                <div class="custom-legend-title">Chart Legend</div>
+                <div class="custom-legend-items">
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol primary"></div>
+                        <span class="custom-legend-text">Revenue</span>
+                        <span class="custom-legend-value">($1.2M)</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol success"></div>
+                        <span class="custom-legend-text">Profit</span>
+                        <span class="custom-legend-value">($800K)</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol warning"></div>
+                        <span class="custom-legend-text">Expenses</span>
+                        <span class="custom-legend-value">($400K)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vertical Legend with Different Symbols -->
+            <div class="custom-legend vertical bordered">
+                <div class="custom-legend-title">Line Types</div>
+                <div class="custom-legend-items">
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol line primary"></div>
+                        <span class="custom-legend-text">Solid Line</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol dashed success"></div>
+                        <span class="custom-legend-text">Dashed Line</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol dotted warning"></div>
+                        <span class="custom-legend-text">Dotted Line</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circle Symbols Legend -->
+            <div class="custom-legend bordered">
+                <div class="custom-legend-title">Status Legend</div>
+                <div class="custom-legend-items">
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol circle success"></div>
+                        <span class="custom-legend-text">Active</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol circle warning"></div>
+                        <span class="custom-legend-text">Pending</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol circle error"></div>
+                        <span class="custom-legend-text">Inactive</span>
+                    </div>
+                    <div class="custom-legend-item disabled">
+                        <div class="custom-legend-symbol circle gray"></div>
+                        <span class="custom-legend-text">Disabled</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extended Color Palette Legend -->
+            <div class="custom-legend bordered">
+                <div class="custom-legend-title">Category Legend</div>
+                <div class="custom-legend-items">
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol purple"></div>
+                        <span class="custom-legend-text">Category A</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol teal"></div>
+                        <span class="custom-legend-text">Category B</span>
+                    </div>
+                    <div class="custom-legend-item">
+                        <div class="custom-legend-symbol brown"></div>
+                        <span class="custom-legend-text">Category C</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fieldset Components -->
+    <section class="component-section">
+        <h2>Fieldset Components</h2>
+        <div class="component-row">
+            <!-- Default Fieldset -->
+            <fieldset class="custom-fieldset">
+                <legend class="custom-fieldset-legend">Personal Information</legend>
+                <div class="custom-fieldset-content">
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <div class="custom-text-wrapper">
+                                <input type="text" class="custom-text" placeholder="First Name">
+                                <div class="custom-text-clear" title="Clear"></div>
+                            </div>
+                        </div>
+                        <div class="custom-fieldset-col">
+                            <div class="custom-text-wrapper">
+                                <input type="text" class="custom-text" placeholder="Last Name">
+                                <div class="custom-text-clear" title="Clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <div class="custom-email-wrapper">
+                                <input type="email" class="custom-email" placeholder="Email Address">
+                                <div class="custom-email-clear" title="Clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Primary Fieldset with Required Fields -->
+            <fieldset class="custom-fieldset primary bordered">
+                <legend class="custom-fieldset-legend required">Account Details</legend>
+                <div class="custom-fieldset-content">
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <div class="custom-text-wrapper">
+                                <input type="text" class="custom-text" placeholder="Username" required>
+                                <div class="custom-text-clear" title="Clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <div class="custom-password-wrapper">
+                                <input type="password" class="custom-password" placeholder="Password" required>
+                                <div class="custom-password-clear" title="Clear"></div>
+                                <div class="custom-password-toggle" title="Toggle password visibility"></div>
+                                <div class="custom-password-strength"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Success Fieldset (Compact) -->
+            <fieldset class="custom-fieldset success compact">
+                <legend class="custom-fieldset-legend">Preferences</legend>
+                <div class="custom-fieldset-content">
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <label class="custom-checkbox-wrapper">
+                                <input type="checkbox" checked>
+                                <div class="custom-checkbox"></div>
+                                <span>Receive notifications</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <label class="custom-checkbox-wrapper">
+                                <input type="checkbox">
+                                <div class="custom-checkbox"></div>
+                                <span>Subscribe to newsletter</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Warning Fieldset -->
+            <fieldset class="custom-fieldset warning">
+                <legend class="custom-fieldset-legend">Privacy Settings</legend>
+                <div class="custom-fieldset-content">
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <label class="custom-radio-wrapper">
+                                <input type="radio" name="privacy" value="public">
+                                <div class="custom-radio"></div>
+                                <span>Public Profile</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <label class="custom-radio-wrapper">
+                                <input type="radio" name="privacy" value="private" checked>
+                                <div class="custom-radio"></div>
+                                <span>Private Profile</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Error Fieldset -->
+            <fieldset class="custom-fieldset error">
+                <legend class="custom-fieldset-legend">Delete Account</legend>
+                <div class="custom-fieldset-content">
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <div class="custom-text-wrapper">
+                                <input type="text" class="custom-text" placeholder="Type 'DELETE' to confirm">
+                                <div class="custom-text-clear" title="Clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Disabled Fieldset -->
+            <fieldset class="custom-fieldset disabled">
+                <legend class="custom-fieldset-legend">Disabled Section</legend>
+                <div class="custom-fieldset-content">
+                    <div class="custom-fieldset-row">
+                        <div class="custom-fieldset-col">
+                            <div class="custom-text-wrapper">
+                                <input type="text" class="custom-text" placeholder="Disabled input" disabled>
+                                <div class="custom-text-clear" title="Clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+
+    <!-- Close Button Components -->
+    <section class="component-section">
+        <h2>Close Button Components</h2>
+        <div class="component-row">
+            <!-- Default Close Buttons -->
+            <div class="grid">
+                <button class="custom-close-button"></button>
+                <button class="custom-close-button animated"></button>
+                <button class="custom-close-button" disabled></button>
+            </div>
+
+            <!-- Close Button Types -->
+            <div class="grid">
+                <button class="custom-close-button primary"></button>
+                <button class="custom-close-button success"></button>
+                <button class="custom-close-button warning"></button>
+                <button class="custom-close-button error"></button>
+            </div>
+
+            <!-- Close Button Sizes -->
+            <div class="grid">
+                <button class="custom-close-button small"></button>
+                <button class="custom-close-button"></button>
+                <button class="custom-close-button large"></button>
+            </div>
+
+            <!-- Close Button Variants -->
+            <div class="grid">
+                <button class="custom-close-button rounded"></button>
+                <button class="custom-close-button square"></button>
+                <button class="custom-close-button outline"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- List Group Components -->
+    <section class="component-section">
+        <h2>List Group Components</h2>
+        <div class="component-row">
+            <!-- Default List Group -->
+            <div class="custom-list-group">
+                <div class="custom-list-group-item">Item 1</div>
+                <div class="custom-list-group-item active">Item 2</div>
+                <div class="custom-list-group-item">Item 3</div>
+                <div class="custom-list-group-item disabled">Item 4</div>
+            </div>
+
+            <!-- List Group with Icons and Badges -->
+            <div class="custom-list-group primary">
+                <div class="custom-list-group-item">
+                    <i class="fas fa-inbox custom-list-group-item-icon"></i>
+                    <span class="custom-list-group-item-content">Inbox</span>
+                    <span class="custom-list-group-item-badge">14</span>
+                </div>
+                <div class="custom-list-group-item active">
+                    <i class="fas fa-paper-plane custom-list-group-item-icon"></i>
+                    <span class="custom-list-group-item-content">Sent</span>
+                    <span class="custom-list-group-item-badge">3</span>
+                </div>
+                <div class="custom-list-group-item">
+                    <i class="fas fa-star custom-list-group-item-icon"></i>
+                    <span class="custom-list-group-item-content">Starred</span>
+                    <span class="custom-list-group-item-badge">8</span>
+                </div>
+            </div>
+
+            <!-- List Group with Descriptions -->
+            <div class="custom-list-group success bordered">
+                <div class="custom-list-group-item">
+                    <div class="custom-list-group-item-content">
+                        <div class="custom-list-group-item-title">Project A</div>
+                        <div class="custom-list-group-item-description">Web application development</div>
+                    </div>
+                </div>
+                <div class="custom-list-group-item active">
+                    <div class="custom-list-group-item-content">
+                        <div class="custom-list-group-item-title">Project B</div>
+                        <div class="custom-list-group-item-description">Mobile app design</div>
+                    </div>
+                </div>
+                <div class="custom-list-group-item">
+                    <div class="custom-list-group-item-content">
+                        <div class="custom-list-group-item-title">Project C</div>
+                        <div class="custom-list-group-item-description">API integration</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compact List Group -->
+            <div class="custom-list-group warning compact">
+                <div class="custom-list-group-item">Compact Item 1</div>
+                <div class="custom-list-group-item active">Compact Item 2</div>
+                <div class="custom-list-group-item">Compact Item 3</div>
+            </div>
+
+            <!-- Large List Group -->
+            <div class="custom-list-group error large">
+                <div class="custom-list-group-item">Large Item 1</div>
+                <div class="custom-list-group-item active">Large Item 2</div>
+                <div class="custom-list-group-item">Large Item 3</div>
+            </div>
+
+            <!-- Interactive List Group -->
+            <div class="custom-list-group interactive flush">
+                <div class="custom-list-group-item">
+                    <i class="fas fa-user custom-list-group-item-icon"></i>
+                    <div class="custom-list-group-item-content">
+                        <div class="custom-list-group-item-title">John Doe</div>
+                        <div class="custom-list-group-item-description">Online</div>
+                    </div>
+                    <span class="custom-list-group-item-badge">5</span>
+                </div>
+                <div class="custom-list-group-item active">
+                    <i class="fas fa-user custom-list-group-item-icon"></i>
+                    <div class="custom-list-group-item-content">
+                        <div class="custom-list-group-item-title">Jane Smith</div>
+                        <div class="custom-list-group-item-description">Away</div>
+                    </div>
+                    <span class="custom-list-group-item-badge">2</span>
+                </div>
+                <div class="custom-list-group-item">
+                    <i class="fas fa-user custom-list-group-item-icon"></i>
+                    <div class="custom-list-group-item-content">
+                        <div class="custom-list-group-item-title">Mike Johnson</div>
+                        <div class="custom-list-group-item-description">Offline</div>
+                    </div>
+                    <span class="custom-list-group-item-badge">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Components -->
+    <section class="component-section">
+        <h2>Modal Components</h2>
+        <div class="component-row">
+            <div class="grid">
+                <!-- Default Modal Button -->
+                <button class="custom-button" onclick="showModal('default')">
+                    <span>Show Default Modal</span>
+                </button>
+
+                <!-- Success Modal Button -->
+                <button class="custom-button" onclick="showModal('success')">
+                    <span>Show Success Modal</span>
+                </button>
+
+                <!-- Warning Modal Button -->
+                <button class="custom-button" onclick="showModal('warning')">
+                    <span>Show Warning Modal</span>
+                </button>
+
+                <!-- Error Modal Button -->
+                <button class="custom-button" onclick="showModal('error')">
+                    <span>Show Error Modal</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Templates -->
+    <div class="custom-modal-overlay" id="defaultModal">
+        <div class="custom-modal">
+            <div class="custom-modal-header">
+                <h3 class="custom-modal-title">Default Modal</h3>
+                <button class="custom-modal-close" onclick="closeModal('default')"></button>
+            </div>
+            <div class="custom-modal-body">
+                <p>This is a default modal with a header, body content, and footer with action buttons.</p>
+                <p>You can customize the content and styling based on your needs.</p>
+            </div>
+            <div class="custom-modal-footer">
+                <button class="custom-modal-button" onclick="closeModal('default')">Cancel</button>
+                <button class="custom-modal-button primary" onclick="handleModalAction('default')">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-modal-overlay" id="successModal">
+        <div class="custom-modal success">
+            <div class="custom-modal-header">
+                <h3 class="custom-modal-title">Success Modal</h3>
+                <button class="custom-modal-close" onclick="closeModal('success')"></button>
+            </div>
+            <div class="custom-modal-body">
+                <p>Your action was completed successfully!</p>
+                <p>The changes have been saved and applied to the system.</p>
+            </div>
+            <div class="custom-modal-footer">
+                <button class="custom-modal-button" onclick="closeModal('success')">Cancel</button>
+                <button class="custom-modal-button primary" onclick="handleModalAction('success')">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-modal-overlay" id="warningModal">
+        <div class="custom-modal warning">
+            <div class="custom-modal-header">
+                <h3 class="custom-modal-title">Warning Modal</h3>
+                <button class="custom-modal-close" onclick="closeModal('warning')"></button>
+            </div>
+            <div class="custom-modal-body">
+                <p>Are you sure you want to proceed with this action?</p>
+                <p>This action cannot be undone once confirmed.</p>
+            </div>
+            <div class="custom-modal-footer">
+                <button class="custom-modal-button" onclick="closeModal('warning')">Cancel</button>
+                <button class="custom-modal-button primary" onclick="handleModalAction('warning')">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-modal-overlay" id="errorModal">
+        <div class="custom-modal error">
+            <div class="custom-modal-header">
+                <h3 class="custom-modal-title">Error Modal</h3>
+                <button class="custom-modal-close" onclick="closeModal('error')"></button>
+            </div>
+            <div class="custom-modal-body">
+                <p>An error occurred while processing your request.</p>
+                <p>Please try again or contact support if the problem persists.</p>
+            </div>
+            <div class="custom-modal-footer">
+                <button class="custom-modal-button" onclick="closeModal('error')">Cancel</button>
+                <button class="custom-modal-button primary" onclick="handleModalAction('error')">Retry</button>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  <script>
+    // Toast functionality
+    const showToast = (type, message, icon) => {
+        const toastContainer = document.getElementById('toastContainer');
+        if (!toastContainer) return;
+
+        const toast = document.createElement('div');
+        toast.className = `custom-toast ${type}`;
+        toast.innerHTML = `
+            <div class="custom-toast-content">
+                <i class="${icon} custom-toast-icon"></i>
+                <span class="custom-toast-message">${message}</span>
+            </div>
+            <button class="custom-toast-close" aria-label="Close"></button>
+        `;
+        
+        // Add to container
+        toastContainer.appendChild(toast);
+        
+        // Show toast with animation
+        requestAnimationFrame(() => {
+            toast.classList.add('show');
+        });
+        
+        // Add close button functionality
+        const closeButton = toast.querySelector('.custom-toast-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            });
+        }
+        
+        // Auto close after 5 seconds
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }
+        }, 5000);
+    };
+
+    // List Group functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const listGroups = document.querySelectorAll('.custom-list-group');
+        
+        listGroups.forEach(group => {
+            const listItems = group.querySelectorAll('.custom-list-group-item');
+            
+            listItems.forEach(item => {
+                if (!item.classList.contains('disabled')) {
+                    item.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // Remove active class from siblings
+                        const siblings = item.parentElement.querySelectorAll('.custom-list-group-item');
+                        siblings.forEach(sibling => sibling.classList.remove('active'));
+                        
+                        // Add active class to clicked item
+                        item.classList.add('active');
+                    });
+                }
+            });
+        });
+    });
+
+    // Modal functionality
+    const showModal = (type) => {
+        const modal = document.getElementById(`${type}Modal`);
+        if (!modal) return;
+        
+        const modalContent = modal.querySelector('.custom-modal');
+        if (!modalContent) return;
+        
+        // Remove any existing event listeners
+        const newModal = modal.cloneNode(true);
+        modal.parentNode.replaceChild(newModal, modal);
+        
+        // Get references to the new elements
+        const newModalContent = newModal.querySelector('.custom-modal');
+        
+        // Show modal
+        newModal.classList.add('show');
+        setTimeout(() => {
+            newModalContent.classList.add('show');
+        }, 10);
+
+        // Close modal when clicking outside
+        newModal.addEventListener('click', (e) => {
+            if (e.target === newModal) {
+                closeModal(type);
+            }
+        });
+
+        // Close modal with Escape key
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeModal(type);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+        
+        // Store the event listener for cleanup
+        newModal.dataset.escapeHandler = handleEscape;
+    };
+
+    const closeModal = (type) => {
+        const modal = document.getElementById(`${type}Modal`);
+        if (!modal) return;
+        
+        const modalContent = modal.querySelector('.custom-modal');
+        if (!modalContent) return;
+        
+        // Remove escape key listener
+        const escapeHandler = modal.dataset.escapeHandler;
+        if (escapeHandler) {
+            document.removeEventListener('keydown', escapeHandler);
+        }
+        
+        modalContent.classList.remove('show');
+        setTimeout(() => {
+            modal.classList.remove('show');
+        }, 300);
+    };
+
+    const handleModalAction = (type) => {
+        // Handle modal action based on type
+        switch(type) {
+            case 'success':
+                showToast('success', 'Action completed successfully!', 'fas fa-check');
+                break;
+            case 'warning':
+                showToast('warning', 'Action confirmed with warning.', 'fas fa-exclamation');
+                break;
+            case 'error':
+                showToast('error', 'Retrying action...', 'fas fa-sync');
+                break;
+            default:
+                showToast('info', 'Action confirmed.', 'fas fa-info');
+        }
+        closeModal(type);
+    };
+
+    // Dropdown functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectWrappers = document.querySelectorAll('.custom-select-wrapper');
+
+        selectWrappers.forEach(wrapper => {
+            const select = wrapper.querySelector('.custom-select');
+            const options = wrapper.querySelector('.custom-options');
+            const selectedText = select.querySelector('span');
+            const clearButton = select.querySelector('.custom-select-clear');
+
+            if (!select || !options || !selectedText || !clearButton) return;
+
+            // Toggle dropdown
+            select.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!e.target.closest('.custom-select-clear')) {
+                    // Close other open dropdowns first
+                    document.querySelectorAll('.custom-select.open').forEach(openSelect => {
+                        if (openSelect !== select) {
+                            openSelect.classList.remove('open');
+                        }
+                    });
+                    select.classList.toggle('open');
+                }
+            });
+
+            // Clear selection
+            clearButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selectedText.textContent = 'Select an option';
+                select.classList.remove('has-value');
+                wrapper.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
+                
+                // Dispatch custom change event
+                const event = new CustomEvent('change', {
+                    detail: {
+                        value: '',
+                        text: ''
+                    }
+                });
+                wrapper.dispatchEvent(event);
+            });
+
+            // Close dropdown when clicking outside
+            const closeDropdown = (e) => {
+                if (!wrapper.contains(e.target)) {
+                    select.classList.remove('open');
+                }
+            };
+            document.addEventListener('click', closeDropdown);
+
+            // Handle option selection
+            const optionElements = wrapper.querySelectorAll('.custom-option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    optionElements.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    selectedText.textContent = option.textContent;
+                    select.classList.remove('open');
+                    select.classList.add('has-value');
+                    
+                    // Dispatch custom change event
+                    const event = new CustomEvent('change', {
+                        detail: {
+                            value: option.dataset.value,
+                            text: option.textContent
+                        }
+                    });
+                    wrapper.dispatchEvent(event);
+                });
+            });
+
+            // Keyboard navigation
+            select.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    select.click();
+                }
+            });
+        });
+    });
+
+    // URL Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlWrappers = document.querySelectorAll('.custom-url-wrapper');
+
+        urlWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-url');
+            const clearButton = wrapper.querySelector('.custom-url-clear');
+
+            if (!input || !clearButton) return;
+
+            // Show/hide clear button based on input value
+            input.addEventListener('input', () => {
+                if (input.value) {
+                    clearButton.style.display = 'block';
+                } else {
+                    clearButton.style.display = 'none';
+                }
+            });
+
+            // Clear input when clear button is clicked
+            clearButton.addEventListener('click', () => {
+                input.value = '';
+                clearButton.style.display = 'none';
+                input.focus();
+            });
+        });
+    });
+
+    // Number Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const numberWrappers = document.querySelectorAll('.custom-number-wrapper');
+
+        numberWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-number-input');
+            const incrementBtn = wrapper.querySelector('.increment');
+            const decrementBtn = wrapper.querySelector('.decrement');
+            const clearButton = wrapper.querySelector('.custom-number-clear');
+
+            if (!input || !incrementBtn || !decrementBtn || !clearButton) return;
+
+            // Increment/decrement functionality
+            incrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentValue = parseFloat(input.value) || 0;
+                    const step = parseFloat(input.step) || 1;
+                    const max = parseFloat(input.max) || Infinity;
+                    input.value = Math.min(currentValue + step, max);
+                }
+            });
+
+            decrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentValue = parseFloat(input.value) || 0;
+                    const step = parseFloat(input.step) || 1;
+                    const min = parseFloat(input.min) || -Infinity;
+                    input.value = Math.max(currentValue - step, min);
+                }
+            });
+
+            // Clear functionality
+            clearButton.addEventListener('click', () => {
+                if (!input.disabled) {
+                    input.value = '';
+                    input.focus();
+                }
+            });
+        });
+    });
+
+    // Range Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const rangeWrappers = document.querySelectorAll('.custom-range-wrapper');
+
+        rangeWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-range-input');
+            const valueDisplay = wrapper.querySelector('.custom-range-value');
+
+            if (!input || !valueDisplay) return;
+
+            input.addEventListener('input', () => {
+                valueDisplay.textContent = input.value;
+            });
+        });
+    });
+
+    // Email Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailWrappers = document.querySelectorAll('.custom-email-wrapper');
+
+        emailWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-email');
+            const clearButton = wrapper.querySelector('.custom-email-clear');
+
+            if (!input || !clearButton) return;
+
+            // Show/hide clear button based on input value
+            input.addEventListener('input', () => {
+                if (input.value) {
+                    clearButton.style.display = 'block';
+                } else {
+                    clearButton.style.display = 'none';
+                }
+            });
+
+            // Clear functionality
+            clearButton.addEventListener('click', () => {
+                if (!input.disabled) {
+                    input.value = '';
+                    clearButton.style.display = 'none';
+                    input.focus();
+                }
+            });
+        });
+    });
+
+    // Chips functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const chipsWrappers = document.querySelectorAll('.custom-chips-wrapper');
+
+        chipsWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-chips-input');
+            const chipsContainer = wrapper;
+
+            if (!input || !chipsContainer) return;
+
+            // Handle chip removal
+            chipsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('custom-chip-remove')) {
+                    e.target.parentElement.remove();
+                }
+            });
+
+            // Handle new chip creation
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && input.value.trim()) {
+                    e.preventDefault();
+                    const chip = document.createElement('div');
+                    chip.className = 'custom-chip';
+                    chip.innerHTML = `
+                        ${input.value.trim()}
+                        <span class="custom-chip-remove"></span>
+                    `;
+                    chipsContainer.insertBefore(chip, input);
+                    input.value = '';
+                }
+            });
+        });
+    });
+
+    // Time Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const timeWrappers = document.querySelectorAll('.custom-time-wrapper');
+
+        timeWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-time');
+            const incrementBtn = wrapper.querySelector('.increment');
+            const decrementBtn = wrapper.querySelector('.decrement');
+            const clearButton = wrapper.querySelector('.custom-time-clear');
+
+            if (!input || !incrementBtn || !decrementBtn || !clearButton) return;
+
+            // Increment/decrement functionality
+            incrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentTime = new Date(`1970-01-01T${input.value}`);
+                    currentTime.setMinutes(currentTime.getMinutes() + 60);
+                    input.value = currentTime.toTimeString().slice(0, 5);
+                }
+            });
+
+            decrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentTime = new Date(`1970-01-01T${input.value}`);
+                    currentTime.setMinutes(currentTime.getMinutes() - 60);
+                    input.value = currentTime.toTimeString().slice(0, 5);
+                }
+            });
+
+            // Clear functionality
+            clearButton.addEventListener('click', () => {
+                if (!input.disabled) {
+                    input.value = '';
+                    input.focus();
+                }
+            });
+        });
+    });
+
+    // Week Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const weekWrappers = document.querySelectorAll('.custom-week-wrapper');
+
+        weekWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-week');
+            const incrementBtn = wrapper.querySelector('.increment');
+            const decrementBtn = wrapper.querySelector('.decrement');
+            const clearButton = wrapper.querySelector('.custom-week-clear');
+
+            if (!input || !incrementBtn || !decrementBtn || !clearButton) return;
+
+            // Increment/decrement functionality
+            incrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentDate = new Date(input.value);
+                    currentDate.setDate(currentDate.getDate() + 7);
+                    input.value = currentDate.toISOString().slice(0, 10);
+                }
+            });
+
+            decrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentDate = new Date(input.value);
+                    currentDate.setDate(currentDate.getDate() - 7);
+                    input.value = currentDate.toISOString().slice(0, 10);
+                }
+            });
+
+            // Clear functionality
+            clearButton.addEventListener('click', () => {
+                if (!input.disabled) {
+                    input.value = '';
+                    input.focus();
+                }
+            });
+        });
+    });
+
+    // Month Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const monthWrappers = document.querySelectorAll('.custom-month-wrapper');
+
+        monthWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-month');
+            const incrementBtn = wrapper.querySelector('.increment');
+            const decrementBtn = wrapper.querySelector('.decrement');
+            const clearButton = wrapper.querySelector('.custom-month-clear');
+
+            if (!input || !incrementBtn || !decrementBtn || !clearButton) return;
+
+            // Increment/decrement functionality
+            incrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentDate = new Date(input.value);
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    input.value = currentDate.toISOString().slice(0, 7);
+                }
+            });
+
+            decrementBtn.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const currentDate = new Date(input.value);
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    input.value = currentDate.toISOString().slice(0, 7);
+                }
+            });
+
+            // Clear functionality
+            clearButton.addEventListener('click', () => {
+                if (!input.disabled) {
+                    input.value = '';
+                    input.focus();
+                }
+            });
+        });
+    });
+
+    // Textarea functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const textareaWrappers = document.querySelectorAll('.custom-textarea-wrapper');
+
+        textareaWrappers.forEach(wrapper => {
+            const textarea = wrapper.querySelector('.custom-textarea');
+            const clearButton = wrapper.querySelector('.custom-textarea-clear');
+            const countDisplay = wrapper.querySelector('.custom-textarea-count');
+
+            if (!textarea || !clearButton || !countDisplay) return;
+
+            // Update character count
+            textarea.addEventListener('input', () => {
+                const count = textarea.value.length;
+                countDisplay.textContent = `${count}/${textarea.maxLength}`;
+            });
+
+            // Clear functionality
+            clearButton.addEventListener('click', () => {
+                if (!textarea.disabled) {
+                    textarea.value = '';
+                    countDisplay.textContent = `0/${textarea.maxLength}`;
+                    textarea.focus();
+                }
+            });
+        });
+    });
+
+    // Password Input functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const passwordWrappers = document.querySelectorAll('.custom-password-wrapper');
+
+        passwordWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-password');
+            const clearButton = wrapper.querySelector('.custom-password-clear');
+            const toggleButton = wrapper.querySelector('.custom-password-toggle');
+            const strengthIndicator = wrapper.querySelector('.custom-password-strength');
+
+            if (!input || !clearButton || !toggleButton || !strengthIndicator) return;
+
+            // Toggle password visibility
+            toggleButton.addEventListener('click', () => {
+                if (!input.disabled) {
+                    input.type = input.type === 'password' ? 'text' : 'password';
+                }
+            });
+
+            // Clear functionality
+            clearButton.addEventListener('click', () => {
+                if (!input.disabled) {
+                    input.value = '';
+                    input.focus();
+                }
+            });
+
+            // Password strength indicator
+            input.addEventListener('input', () => {
+                if (!input.disabled) {
+                    const password = input.value;
+                    let strength = 0;
+                    
+                    if (password.length >= 8) strength++;
+                    if (password.match(/[a-z]/)) strength++;
+                    if (password.match(/[A-Z]/)) strength++;
+                    if (password.match(/[0-9]/)) strength++;
+                    if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+                    strengthIndicator.className = 'custom-password-strength';
+                    if (strength > 0) strengthIndicator.classList.add(`strength-${strength}`);
+                }
+            });
+        });
+    });
+
+    // List functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const listWrappers = document.querySelectorAll('.custom-list-wrapper');
+
+        listWrappers.forEach(wrapper => {
+            const input = wrapper.querySelector('.custom-list-input');
+            const listItems = wrapper.querySelector('.custom-list-items');
+            const typeToggle = wrapper.querySelector('.custom-list-type');
+
+            if (!input || !listItems || !typeToggle) return;
+
+            // Toggle list type
+            typeToggle.addEventListener('click', () => {
+                if (!input.disabled) {
+                    const isOrdered = listItems.tagName === 'OL';
+                    const newList = document.createElement(isOrdered ? 'ul' : 'ol');
+                    newList.className = 'custom-list-items';
+                    while (listItems.firstChild) {
+                        newList.appendChild(listItems.firstChild);
+                    }
+                    listItems.parentNode.replaceChild(newList, listItems);
+                }
+            });
+
+            // Add new item
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && input.value.trim()) {
+                    e.preventDefault();
+                    const li = document.createElement('li');
+                    li.textContent = input.value.trim();
+                    listItems.appendChild(li);
+                    input.value = '';
+                }
+            });
+        });
+    });
+
+    // Vertical Menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const verticalMenus = document.querySelectorAll('.custom-vertical-menu');
+
+        verticalMenus.forEach(menu => {
+            const menuItems = menu.querySelectorAll('.custom-vertical-menu-item');
+
+            menuItems.forEach(item => {
+                const link = item.querySelector('.custom-vertical-menu-link');
+                const submenu = item.querySelector('.custom-vertical-submenu');
+                const expandIcon = item.querySelector('.custom-vertical-menu-expand');
+
+                if (link && submenu && expandIcon) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        submenu.classList.toggle('show');
+                        expandIcon.classList.toggle('expanded');
+                    });
+                }
+            });
+        });
+    });
+
+    // Header functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const headers = document.querySelectorAll('.custom-header');
+
+        headers.forEach(header => {
+            const profileContainer = header.querySelector('.custom-header-profile');
+            const profileDropdown = header.querySelector('.custom-header-profile-dropdown');
+
+            if (profileContainer && profileDropdown) {
+                // Toggle dropdown when clicking the profile container
+                profileContainer.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    profileContainer.classList.toggle('active');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!profileContainer.contains(e.target)) {
+                        profileContainer.classList.remove('active');
+                    }
+                });
+
+                // Prevent dropdown from closing when clicking inside it
+                profileDropdown.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        });
+    });
+
+    // Accordion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const accordions = document.querySelectorAll('.custom-accordion');
+
+        accordions.forEach(accordion => {
+            const items = accordion.querySelectorAll('.custom-accordion-item');
+
+            items.forEach(item => {
+                const header = item.querySelector('.custom-accordion-header');
+                const content = item.querySelector('.custom-accordion-content');
+
+                if (header && content) {
+                    header.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('active');
+                        
+                        // Close all other items
+                        items.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+
+                        // Toggle current item
+                        item.classList.toggle('active');
+                    });
+                }
+            });
+        });
+    });
+
+    // Alert functionality
+    const showAlert = (type, message, icon) => {
+        const alertContainer = document.getElementById('alertContainer');
+        if (!alertContainer) return;
+
+        const alert = document.createElement('div');
+        alert.className = `custom-alert ${type}`;
+        alert.innerHTML = `
+            <div class="custom-alert-content">
+                <i class="${icon} custom-alert-icon"></i>
+                <span class="custom-alert-text">${message}</span>
+            </div>
+            <button class="custom-alert-close" aria-label="Close"></button>
+        `;
+
+        alertContainer.appendChild(alert);
+
+        // Show alert with animation
+        requestAnimationFrame(() => {
+            alert.classList.add('show');
+        });
+
+        // Add close button functionality
+        const closeButton = alert.querySelector('.custom-alert-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                alert.classList.remove('show');
+                setTimeout(() => {
+                    alert.remove();
+                }, 300);
+            });
+        }
+
+        // Auto close after 5 seconds
+        setTimeout(() => {
+            if (alert.parentNode) {
+                alert.classList.remove('show');
+                setTimeout(() => {
+                    alert.remove();
+                }, 300);
+            }
+        }, 5000);
+    };
+  </script>
+</body>
+</html>

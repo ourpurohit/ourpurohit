@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Control</title>
+    <link rel="stylesheet" href="../assets/text.css">
+</head>
+<body>
+    <div class="custom-text-wrapper">
+        <input type="text" 
+               class="custom-text" 
+               placeholder="Enter text">
+        <div class="custom-text-clear" title="Clear"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textWrappers = document.querySelectorAll('.custom-text-wrapper');
+
+            textWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-text');
+                const clearButton = wrapper.querySelector('.custom-text-clear');
+
+                // Handle input changes
+                input.addEventListener('input', () => {
+                    wrapper.classList.toggle('has-value', input.value !== '');
+                });
+
+                // Handle clear button
+                clearButton.addEventListener('click', () => {
+                    if (!input.disabled) {
+                        input.value = '';
+                        wrapper.classList.remove('has-value');
+                        input.focus();
+                        
+                        // Dispatch events
+                        input.dispatchEvent(new Event('input'));
+                        input.dispatchEvent(new Event('change'));
+                    }
+                });
+
+                // Handle keyboard shortcuts
+                input.addEventListener('keydown', (e) => {
+                    // Ctrl+A or Cmd+A (Select All)
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+                        e.preventDefault();
+                        input.select();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="../assets/profile-card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="custom-profile-card">
+        <div class="custom-profile-avatar">
+            <img src="https://via.placeholder.com/120" alt="Profile Picture">
+            <div class="custom-profile-status online"></div>
+        </div>
+        
+        <div class="custom-profile-info">
+            <h2 class="custom-profile-name">John Doe</h2>
+            <p class="custom-profile-title">Senior Developer</p>
+            <p class="custom-profile-bio">Passionate about creating beautiful and functional user interfaces with modern web technologies.</p>
+        </div>
+
+        <div class="custom-profile-stats">
+            <div class="custom-profile-stat">
+                <div class="custom-profile-stat-value">128</div>
+                <div class="custom-profile-stat-label">Projects</div>
+            </div>
+            <div class="custom-profile-stat">
+                <div class="custom-profile-stat-value">12.8k</div>
+                <div class="custom-profile-stat-label">Followers</div>
+            </div>
+            <div class="custom-profile-stat">
+                <div class="custom-profile-stat-value">4.8</div>
+                <div class="custom-profile-stat-label">Rating</div>
+            </div>
+        </div>
+
+        <div class="custom-profile-actions">
+            <button class="custom-profile-button">Follow</button>
+            <button class="custom-profile-button">Message</button>
+        </div>
+
+        <div class="custom-profile-social">
+            <a href="#" class="custom-profile-social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="custom-profile-social-link">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="custom-profile-social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="custom-profile-social-link">
+                <i class="fab fa-dribbble"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileCard = document.querySelector('.custom-profile-card');
+            const followButton = profileCard.querySelector('.custom-profile-button');
+            const statusIndicator = profileCard.querySelector('.custom-profile-status');
+            
+            // Toggle follow state
+            followButton.addEventListener('click', function() {
+                const isFollowing = this.classList.contains('following');
+                this.textContent = isFollowing ? 'Follow' : 'Following';
+                this.classList.toggle('following');
+            });
+
+            // Example of changing status
+            statusIndicator.addEventListener('click', function() {
+                const states = ['online', 'offline', 'busy'];
+                const currentState = states.find(state => this.classList.contains(state));
+                const currentIndex = states.indexOf(currentState);
+                const nextIndex = (currentIndex + 1) % states.length;
+
+                states.forEach(state => this.classList.remove(state));
+                this.classList.add(states[nextIndex]);
+            });
+
+            // Handle social link interactions
+            const socialLinks = profileCard.querySelectorAll('.custom-profile-social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Add your social link handling logic here
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

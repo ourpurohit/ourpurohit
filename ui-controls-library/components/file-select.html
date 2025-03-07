@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom File Select</title>
+    <link rel="stylesheet" href="../assets/file-select.css">
+</head>
+<body>
+    <div class="custom-file-wrapper">
+        <input type="file" class="custom-file-input" id="fileInput">
+        <label for="fileInput" class="custom-file-button">Choose File</label>
+        <span class="custom-file-name"></span>
+        <div class="custom-file-clear"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileWrappers = document.querySelectorAll('.custom-file-wrapper');
+
+            fileWrappers.forEach(wrapper => {
+                const fileInput = wrapper.querySelector('.custom-file-input');
+                const fileName = wrapper.querySelector('.custom-file-name');
+                const clearButton = wrapper.querySelector('.custom-file-clear');
+
+                fileInput.addEventListener('change', (e) => {
+                    if (fileInput.files.length > 0) {
+                        fileName.textContent = fileInput.files[0].name;
+                        wrapper.classList.add('has-file');
+                    } else {
+                        fileName.textContent = '';
+                        wrapper.classList.remove('has-file');
+                    }
+                });
+
+                clearButton.addEventListener('click', () => {
+                    fileInput.value = '';
+                    fileName.textContent = '';
+                    wrapper.classList.remove('has-file');
+                    
+                    // Dispatch change event
+                    const event = new Event('change', {
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    fileInput.dispatchEvent(event);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

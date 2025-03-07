@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month Control</title>
+    <link rel="stylesheet" href="../assets/month.css">
+</head>
+<body>
+    <div class="custom-month-wrapper">
+        <input type="month" class="custom-month" id="monthInput" placeholder="Select month">
+        <div class="custom-month-controls">
+            <div class="custom-month-button increment" title="Increment month">▲</div>
+            <div class="custom-month-button decrement" title="Decrement month">▼</div>
+        </div>
+        <div class="custom-month-clear" title="Clear"></div>
+        <div class="custom-month-calendar" title="Select month"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const monthWrappers = document.querySelectorAll('.custom-month-wrapper');
+
+            monthWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-month');
+                const clearButton = wrapper.querySelector('.custom-month-clear');
+                const incrementButton = wrapper.querySelector('.custom-month-button.increment');
+                const decrementButton = wrapper.querySelector('.custom-month-button.decrement');
+
+                // Update wrapper class based on input value
+                function updateWrapperClass() {
+                    if (input.value) {
+                        wrapper.classList.add('has-value');
+                    } else {
+                        wrapper.classList.remove('has-value');
+                    }
+                }
+
+                // Handle month increment/decrement
+                function adjustMonth(increment) {
+                    if (input.disabled) return;
+                    
+                    let currentDate = input.value ? new Date(input.value + '-01') : new Date();
+                    currentDate.setMonth(currentDate.getMonth() + (increment ? 1 : -1));
+                    
+                    // Format the date to month string (YYYY-MM)
+                    const year = currentDate.getFullYear();
+                    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+                    input.value = `${year}-${month}`;
+                    
+                    // Trigger events
+                    input.dispatchEvent(new Event('input'));
+                    input.dispatchEvent(new Event('change'));
+                }
+
+                // Event Listeners
+                input.addEventListener('input', updateWrapperClass);
+                input.addEventListener('change', updateWrapperClass);
+
+                clearButton.addEventListener('click', () => {
+                    if (!input.disabled) {
+                        input.value = '';
+                        input.dispatchEvent(new Event('input'));
+                        input.dispatchEvent(new Event('change'));
+                    }
+                });
+
+                incrementButton.addEventListener('click', () => adjustMonth(true));
+                decrementButton.addEventListener('click', () => adjustMonth(false));
+
+                // Handle keyboard navigation
+                input.addEventListener('keydown', (e) => {
+                    if (input.disabled) return;
+                    
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        adjustMonth(true);
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        adjustMonth(false);
+                    }
+                });
+
+                // Initial state check
+                updateWrapperClass();
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Time Input</title>
+    <link rel="stylesheet" href="../assets/time.css">
+</head>
+<body>
+    <div class="custom-time-wrapper">
+        <input type="time" 
+               class="custom-time" 
+               placeholder="Select time"
+               step="60">
+        <div class="custom-time-controls">
+            <button class="custom-time-button increment">▲</button>
+            <button class="custom-time-button decrement">▼</button>
+        </div>
+        <div class="custom-time-clear"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeWrappers = document.querySelectorAll('.custom-time-wrapper');
+
+            timeWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-time');
+                const clearButton = wrapper.querySelector('.custom-time-clear');
+                const incrementBtn = wrapper.querySelector('.increment');
+                const decrementBtn = wrapper.querySelector('.decrement');
+
+                if (input.disabled) {
+                    wrapper.style.opacity = '0.6';
+                    wrapper.style.pointerEvents = 'none';
+                    return;
+                }
+
+                // Update wrapper class based on input value
+                function updateWrapperClass() {
+                    wrapper.classList.toggle('has-value', input.value !== '');
+                }
+
+                // Handle time increment/decrement
+                function adjustTime(minutes) {
+                    if (!input.value) {
+                        const now = new Date();
+                        now.setHours(0, 0, 0, 0);
+                        input.value = now.toTimeString().slice(0, 5);
+                    }
+
+                    const [hours, mins] = input.value.split(':').map(Number);
+                    const date = new Date();
+                    date.setHours(hours);
+                    date.setMinutes(mins + minutes);
+                    
+                    input.value = date.toTimeString().slice(0, 5);
+                    updateWrapperClass();
+                    
+                    // Dispatch change event
+                    const event = new Event('change', { bubbles: true });
+                    input.dispatchEvent(event);
+                }
+
+                // Handle input changes
+                input.addEventListener('input', updateWrapperClass);
+                input.addEventListener('change', updateWrapperClass);
+
+                // Handle clear button
+                clearButton.addEventListener('click', () => {
+                    input.value = '';
+                    updateWrapperClass();
+                    input.focus();
+
+                    // Dispatch change event
+                    const event = new Event('change', { bubbles: true });
+                    input.dispatchEvent(event);
+                });
+
+                // Handle increment/decrement buttons
+                incrementBtn.addEventListener('click', () => adjustTime(15));
+                decrementBtn.addEventListener('click', () => adjustTime(-15));
+
+                // Handle keyboard navigation
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        adjustTime(15);
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        adjustTime(-15);
+                    }
+                });
+
+                // Initialize state
+                updateWrapperClass();
+            });
+        });
+    </script>
+</body>
+</html> 

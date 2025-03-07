@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tile Card</title>
+    <link rel="stylesheet" href="../assets/tile-card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="custom-tile-grid">
+        <!-- Project Tile -->
+        <div class="custom-tile-card">
+            <div class="custom-tile-icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="custom-tile-badge">3</div>
+            <h3 class="custom-tile-title">Project Alpha</h3>
+            <p class="custom-tile-subtitle">Web Development</p>
+            <p class="custom-tile-description">A modern web application built with React and Node.js, featuring real-time updates and cloud integration.</p>
+            <div class="custom-tile-footer">
+                <span class="custom-tile-meta">Last updated: 2 days ago</span>
+                <a href="#" class="custom-tile-action">View Details</a>
+            </div>
+        </div>
+
+        <!-- Task Tile -->
+        <div class="custom-tile-card">
+            <div class="custom-tile-icon">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="custom-tile-badge">5</div>
+            <h3 class="custom-tile-title">Sprint Tasks</h3>
+            <p class="custom-tile-subtitle">In Progress</p>
+            <p class="custom-tile-description">Current sprint tasks including UI improvements, bug fixes, and performance optimizations.</p>
+            <div class="custom-tile-footer">
+                <span class="custom-tile-meta">Due: Tomorrow</span>
+                <a href="#" class="custom-tile-action">View Tasks</a>
+            </div>
+        </div>
+
+        <!-- Disabled Tile -->
+        <div class="custom-tile-card disabled">
+            <div class="custom-tile-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h3 class="custom-tile-title">Archived Project</h3>
+            <p class="custom-tile-subtitle">Completed</p>
+            <p class="custom-tile-description">This project has been completed and archived. Contact admin for access to project files.</p>
+            <div class="custom-tile-footer">
+                <span class="custom-tile-meta">Archived: 1 month ago</span>
+                <a href="#" class="custom-tile-action">Request Access</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tileCards = document.querySelectorAll('.custom-tile-card:not(.disabled)');
+            
+            tileCards.forEach(card => {
+                // Handle click events
+                card.addEventListener('click', function(e) {
+                    // Don't trigger if clicking on action button
+                    if (e.target.classList.contains('custom-tile-action')) {
+                        return;
+                    }
+                    
+                    // Add your click handling logic here
+                    console.log('Tile clicked:', card.querySelector('.custom-tile-title').textContent);
+                });
+
+                // Handle action button clicks
+                const actionButton = card.querySelector('.custom-tile-action');
+                if (actionButton) {
+                    actionButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Add your action button logic here
+                        console.log('Action clicked:', this.textContent);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

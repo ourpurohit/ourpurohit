@@ -1,0 +1,149 @@
+/* Legend Container */
+.custom-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Legend Title */
+.custom-legend-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Legend Items Container */
+.custom-legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Legend Item */
+.custom-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #606060;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.custom-legend-item:hover {
+  opacity: 0.8;
+}
+
+.custom-legend-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Legend Symbol Types */
+.custom-legend-symbol {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Circle Symbol */
+.custom-legend-symbol.circle {
+  border-radius: 50%;
+}
+
+/* Line Symbol */
+.custom-legend-symbol.line {
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Dashed Line Symbol */
+.custom-legend-symbol.dashed {
+  height: 3px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    currentColor,
+    currentColor 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* Dotted Line Symbol */
+.custom-legend-symbol.dotted {
+  height: 3px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    currentColor,
+    currentColor 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+/* Symbol Colors */
+.custom-legend-symbol.primary {
+  background-color: #1976d2;
+}
+
+.custom-legend-symbol.success {
+  background-color: #2e7d32;
+}
+
+.custom-legend-symbol.warning {
+  background-color: #f57c00;
+}
+
+.custom-legend-symbol.error {
+  background-color: #d32f2f;
+}
+
+.custom-legend-symbol.purple {
+  background-color: #7b1fa2;
+}
+
+.custom-legend-symbol.teal {
+  background-color: #00796b;
+}
+
+.custom-legend-symbol.brown {
+  background-color: #795548;
+}
+
+.custom-legend-symbol.gray {
+  background-color: #757575;
+}
+
+/* Legend Layout Types */
+.custom-legend.horizontal .custom-legend-items {
+  flex-direction: row;
+}
+
+.custom-legend.vertical .custom-legend-items {
+  flex-direction: column;
+}
+
+/* Legend with Border */
+.custom-legend.bordered {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+/* Legend Text */
+.custom-legend-text {
+  font-size: 14px;
+  color: #606060;
+}
+
+/* Legend Value */
+.custom-legend-value {
+  font-size: 12px;
+  color: #909090;
+  margin-left: 4px;
+} 

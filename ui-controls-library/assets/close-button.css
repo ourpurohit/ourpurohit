@@ -1,0 +1,155 @@
+/* Close Button Container */
+.custom-close-button {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #f0f0f0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 
+    2px 2px 5px rgba(0, 0, 0, 0.05),
+    -2px -2px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Close Icon */
+.custom-close-button::before,
+.custom-close-button::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background-color: #666;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.custom-close-button::before {
+  transform: rotate(45deg);
+}
+
+.custom-close-button::after {
+  transform: rotate(-45deg);
+}
+
+/* Hover State */
+.custom-close-button:hover {
+  box-shadow: 
+    3px 3px 7px rgba(0, 0, 0, 0.1),
+    -3px -3px 7px rgba(255, 255, 255, 0.8);
+}
+
+.custom-close-button:hover::before,
+.custom-close-button:hover::after {
+  background-color: #333;
+}
+
+/* Active/Pressed State */
+.custom-close-button:active {
+  box-shadow: 
+    inset 2px 2px 5px rgba(0, 0, 0, 0.05),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Focus State */
+.custom-close-button:focus {
+  outline: none;
+  box-shadow: 
+    2px 2px 5px rgba(0, 0, 0, 0.05),
+    -2px -2px 5px rgba(255, 255, 255, 0.6),
+    0 0 0 3px rgba(25, 118, 210, 0.2);
+}
+
+/* Types */
+.custom-close-button.primary::before,
+.custom-close-button.primary::after {
+  background-color: #1976d2;
+}
+
+.custom-close-button.success::before,
+.custom-close-button.success::after {
+  background-color: #2e7d32;
+}
+
+.custom-close-button.warning::before,
+.custom-close-button.warning::after {
+  background-color: #f57c00;
+}
+
+.custom-close-button.error::before,
+.custom-close-button.error::after {
+  background-color: #d32f2f;
+}
+
+/* Sizes */
+.custom-close-button.small {
+  width: 24px;
+  height: 24px;
+}
+
+.custom-close-button.small::before,
+.custom-close-button.small::after {
+  width: 12px;
+}
+
+.custom-close-button.large {
+  width: 40px;
+  height: 40px;
+}
+
+.custom-close-button.large::before,
+.custom-close-button.large::after {
+  width: 20px;
+}
+
+/* Disabled State */
+.custom-close-button:disabled,
+.custom-close-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Rounded Variant */
+.custom-close-button.rounded {
+  border-radius: 8px;
+}
+
+/* Square Variant */
+.custom-close-button.square {
+  border-radius: 4px;
+}
+
+/* Outline Variant */
+.custom-close-button.outline {
+  border: 1px solid #e0e0e0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.custom-close-button.outline:hover {
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: none;
+}
+
+.custom-close-button.outline:active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Animation */
+@keyframes close-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.custom-close-button.animated:hover {
+  animation: close-spin 0.3s ease-out;
+} 

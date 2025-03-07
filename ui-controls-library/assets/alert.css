@@ -1,0 +1,191 @@
+/* Alert Container */
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  padding: 16px 32px 16px 16px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px rgba(255, 255, 255, 0.8);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Alert Content */
+.custom-alert-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Alert Icon */
+.custom-alert-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+/* Alert Text */
+.custom-alert-text {
+  flex-grow: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #606060;
+  letter-spacing: 0.3px;
+  text-shadow: 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.5);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+  padding-right: 4px;
+}
+
+/* Alert Close Button */
+.custom-alert-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  opacity: 0.7;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.custom-alert-close:hover {
+  opacity: 1;
+}
+
+.custom-alert-close::before,
+.custom-alert-close::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-alert-close::before {
+  transform: rotate(45deg);
+}
+
+.custom-alert-close::after {
+  transform: rotate(-45deg);
+}
+
+/* Alert Types */
+.custom-alert.success {
+  background: linear-gradient(145deg, #e8f5e9, #c8e6c9);
+}
+
+.custom-alert.success .custom-alert-icon {
+  color: #4caf50;
+}
+
+.custom-alert.success .custom-alert-close::before,
+.custom-alert.success .custom-alert-close::after {
+  background: #4caf50;
+}
+
+.custom-alert.warning {
+  background: linear-gradient(145deg, #fff3e0, #ffe0b2);
+}
+
+.custom-alert.warning .custom-alert-icon {
+  color: #ff9800;
+}
+
+.custom-alert.warning .custom-alert-close::before,
+.custom-alert.warning .custom-alert-close::after {
+  background: #ff9800;
+}
+
+.custom-alert.error {
+  background: linear-gradient(145deg, #ffebee, #ffcdd2);
+}
+
+.custom-alert.error .custom-alert-icon {
+  color: #f44336;
+}
+
+.custom-alert.error .custom-alert-close::before,
+.custom-alert.error .custom-alert-close::after {
+  background: #f44336;
+}
+
+.custom-alert.info {
+  background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+}
+
+.custom-alert.info .custom-alert-icon {
+  color: #2196f3;
+}
+
+.custom-alert.info .custom-alert-close::before,
+.custom-alert.info .custom-alert-close::after {
+  background: #2196f3;
+}
+
+/* Alert Container for Multiple Alerts */
+#alertContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Alert Animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.custom-alert.slide-in {
+  animation: slideIn 0.3s ease forwards;
+}
+
+.custom-alert.slide-out {
+  animation: slideOut 0.3s ease forwards;
+} 

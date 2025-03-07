@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Email Input</title>
+    <link rel="stylesheet" href="../assets/email.css">
+</head>
+<body>
+    <div class="custom-email-wrapper">
+        <input type="email" 
+               class="custom-email" 
+               placeholder="Enter email"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+               title="Please enter a valid email address">
+        <div class="custom-email-clear"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailWrappers = document.querySelectorAll('.custom-email-wrapper');
+
+            emailWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-email');
+                const clearButton = wrapper.querySelector('.custom-email-clear');
+
+                // Handle input changes
+                input.addEventListener('input', () => {
+                    wrapper.classList.toggle('has-value', input.value !== '');
+                });
+
+                // Handle clear button
+                clearButton.addEventListener('click', () => {
+                    input.value = '';
+                    wrapper.classList.remove('has-value');
+                    input.focus();
+
+                    // Dispatch input and change events
+                    const inputEvent = new Event('input', { bubbles: true });
+                    const changeEvent = new Event('change', { bubbles: true });
+                    input.dispatchEvent(inputEvent);
+                    input.dispatchEvent(changeEvent);
+                });
+
+                // Handle disabled state
+                if (input.disabled) {
+                    wrapper.style.opacity = '0.6';
+                    wrapper.style.pointerEvents = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom URL Input</title>
+    <link rel="stylesheet" href="../assets/url.css">
+</head>
+<body>
+    <div class="custom-url-wrapper">
+        <input type="url" 
+               class="custom-url" 
+               placeholder="Enter URL"
+               pattern="https?://.+"
+               title="Include http:// or https://">
+        <div class="custom-url-clear"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlWrappers = document.querySelectorAll('.custom-url-wrapper');
+
+            urlWrappers.forEach(wrapper => {
+                const urlInput = wrapper.querySelector('.custom-url');
+                const clearButton = wrapper.querySelector('.custom-url-clear');
+
+                // Clear input
+                clearButton.addEventListener('click', () => {
+                    urlInput.value = '';
+                    urlInput.focus();
+                    
+                    // Dispatch input event
+                    const event = new Event('input', {
+                        bubbles: true,
+                        cancelable: true,
+                    });
+                    urlInput.dispatchEvent(event);
+                });
+
+                // Handle input validation
+                urlInput.addEventListener('input', () => {
+                    if (urlInput.value && !urlInput.value.match(/^https?:\/\//)) {
+                        urlInput.value = 'https://' + urlInput.value.replace(/^https?:\/\//, '');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

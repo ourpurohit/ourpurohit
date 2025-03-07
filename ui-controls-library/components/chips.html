@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Chips Input</title>
+    <link rel="stylesheet" href="../assets/chips.css">
+</head>
+<body>
+    <div class="custom-chips-wrapper">
+        <div class="custom-chip">
+            Example<span class="custom-chip-remove"></span>
+        </div>
+        <input type="text" class="custom-chips-input" placeholder="Type and press Enter">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chipsWrappers = document.querySelectorAll('.custom-chips-wrapper');
+
+            chipsWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-chips-input');
+
+                if (wrapper.classList.contains('disabled')) {
+                    input.disabled = true;
+                    return;
+                }
+
+                // Create new chip
+                function createChip(text) {
+                    const chip = document.createElement('div');
+                    chip.className = 'custom-chip';
+                    chip.innerHTML = `${text}<span class="custom-chip-remove"></span>`;
+                    
+                    // Add remove button functionality
+                    const removeBtn = chip.querySelector('.custom-chip-remove');
+                    removeBtn.addEventListener('click', () => {
+                        chip.remove();
+                        // Dispatch custom change event
+                        const event = new CustomEvent('change', {
+                            detail: {
+                                type: 'remove',
+                                value: text
+                            }
+                        });
+                        wrapper.dispatchEvent(event);
+                    });
+
+                    return chip;
+                }
+
+                // Handle input
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && input.value.trim()) {
+                        e.preventDefault();
+                        const chipText = input.value.trim();
+                        const chip = createChip(chipText);
+                        wrapper.insertBefore(chip, input);
+                        input.value = '';
+
+                        // Dispatch custom change event
+                        const event = new CustomEvent('change', {
+                            detail: {
+                                type: 'add',
+                                value: chipText
+                            }
+                        });
+                        wrapper.dispatchEvent(event);
+                    } else if (e.key === 'Backspace' && input.value === '') {
+                        const chips = wrapper.querySelectorAll('.custom-chip');
+                        if (chips.length > 0) {
+                            const lastChip = chips[chips.length - 1];
+                            const chipText = lastChip.textContent;
+                            lastChip.remove();
+
+                            // Dispatch custom change event
+                            const event = new CustomEvent('change', {
+                                detail: {
+                                    type: 'remove',
+                                    value: chipText
+                                }
+                            });
+                            wrapper.dispatchEvent(event);
+                        }
+                    }
+                });
+
+                // Handle paste
+                input.addEventListener('paste', (e) => {
+                    e.preventDefault();
+                    const pastedText = e.clipboardData.getData('text');
+                    const values = pastedText.split(/[,;\n]/).map(text => text.trim()).filter(text => text);
+                    
+                    values.forEach(value => {
+                        const chip = createChip(value);
+                        wrapper.insertBefore(chip, input);
+
+                        // Dispatch custom change event
+                        const event = new CustomEvent('change', {
+                            detail: {
+                                type: 'add',
+                                value: value
+                            }
+                        });
+                        wrapper.dispatchEvent(event);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

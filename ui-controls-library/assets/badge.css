@@ -1,0 +1,131 @@
+/* Badge Container */
+.custom-badge-wrapper {
+  display: inline-flex;
+  position: relative;
+}
+
+/* Badge */
+.custom-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 10px;
+  color: #fff;
+  background: #606060;
+}
+
+/* Badge Types */
+.custom-badge.primary {
+  background: #1976d2;
+}
+
+.custom-badge.success {
+  background: #2e7d32;
+}
+
+.custom-badge.warning {
+  background: #f57c00;
+  color: #fff;
+}
+
+.custom-badge.error {
+  background: #d32f2f;
+}
+
+/* Badge Sizes */
+.custom-badge.small {
+  min-width: 16px;
+  height: 16px;
+  font-size: 10px;
+  padding: 0 4px;
+}
+
+.custom-badge.large {
+  min-width: 24px;
+  height: 24px;
+  font-size: 14px;
+  padding: 0 8px;
+}
+
+/* Badge Positions */
+.custom-badge.top-right {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+.custom-badge.bottom-right {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+}
+
+.custom-badge.top-left {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+}
+
+.custom-badge.bottom-left {
+  position: absolute;
+  bottom: -8px;
+  left: -8px;
+}
+
+/* Badge Variants */
+.custom-badge.outline {
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.custom-badge.outline.primary {
+  color: #1976d2;
+}
+
+.custom-badge.outline.success {
+  color: #2e7d32;
+}
+
+.custom-badge.outline.warning {
+  color: #f57c00;
+}
+
+.custom-badge.outline.error {
+  color: #d32f2f;
+}
+
+/* Dot Badge */
+.custom-badge.dot {
+  min-width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.custom-badge.dot.small {
+  min-width: 6px;
+  height: 6px;
+}
+
+.custom-badge.dot.large {
+  min-width: 10px;
+  height: 10px;
+}
+
+/* Disabled Badge */
+.custom-badge.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Max Value Badge */
+.custom-badge.max-value::after {
+  content: '+';
+} 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Control</title>
+    <link rel="stylesheet" href="../assets/list.css">
+</head>
+<body>
+    <div class="custom-list-wrapper empty">
+        <input type="text" 
+               class="custom-list-input" 
+               placeholder="Enter item and press Enter">
+        <div class="custom-list-type" title="Toggle list type"></div>
+        <ul class="custom-list-items"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const listWrappers = document.querySelectorAll('.custom-list-wrapper');
+
+            listWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-list-input');
+                const listItems = wrapper.querySelector('.custom-list-items');
+                const typeToggle = wrapper.querySelector('.custom-list-type');
+                let items = [];
+
+                // Update list items display
+                function updateList() {
+                    listItems.innerHTML = '';
+                    items.forEach((text, index) => {
+                        const item = document.createElement('li');
+                        item.className = 'custom-list-item';
+                        item.setAttribute('data-index', wrapper.classList.contains('unordered') ? '' : index + 1);
+                        item.innerHTML = `
+                            <span>${text}</span>
+                            <div class="custom-list-item-remove" title="Remove item"></div>
+                        `;
+
+                        // Handle remove button
+                        const removeBtn = item.querySelector('.custom-list-item-remove');
+                        removeBtn.addEventListener('click', () => {
+                            items.splice(index, 1);
+                            updateList();
+                            wrapper.classList.toggle('empty', items.length === 0);
+                            
+                            // Dispatch change event
+                            wrapper.dispatchEvent(new CustomEvent('change', {
+                                detail: {
+                                    type: 'remove',
+                                    index: index,
+                                    value: text,
+                                    items: [...items]
+                                }
+                            }));
+                        });
+
+                        listItems.appendChild(item);
+                    });
+                }
+
+                // Handle input
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && input.value.trim()) {
+                        e.preventDefault();
+                        const text = input.value.trim();
+                        items.push(text);
+                        input.value = '';
+                        updateList();
+                        wrapper.classList.remove('empty');
+
+                        // Dispatch change event
+                        wrapper.dispatchEvent(new CustomEvent('change', {
+                            detail: {
+                                type: 'add',
+                                index: items.length - 1,
+                                value: text,
+                                items: [...items]
+                            }
+                        }));
+                    }
+                });
+
+                // Handle list type toggle
+                typeToggle.addEventListener('click', () => {
+                    wrapper.classList.toggle('unordered');
+                    updateList();
+
+                    // Dispatch change event
+                    wrapper.dispatchEvent(new CustomEvent('change', {
+                        detail: {
+                            type: 'type',
+                            value: wrapper.classList.contains('unordered') ? 'unordered' : 'ordered',
+                            items: [...items]
+                        }
+                    }));
+                });
+
+                // Handle keyboard shortcuts
+                input.addEventListener('keydown', (e) => {
+                    // Ctrl+L or Cmd+L (Toggle list type)
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+                        e.preventDefault();
+                        typeToggle.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

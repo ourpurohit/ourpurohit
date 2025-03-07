@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dropdown</title>
+    <link rel="stylesheet" href="../assets/dropdown.css">
+</head>
+<body>
+    <div class="custom-select-wrapper">
+        <div class="custom-select" tabindex="0">
+            <span>Select an option</span>
+            <div class="custom-select-clear"></div>
+        </div>
+        <div class="custom-options">
+            <div class="custom-option" data-value="option1">Option 1</div>
+            <div class="custom-option" data-value="option2">Option 2</div>
+            <div class="custom-option" data-value="option3">Option 3</div>
+            <div class="custom-option" data-value="option4">Option 4</div>
+            <div class="custom-option" data-value="option5">Option 5</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectWrappers = document.querySelectorAll('.custom-select-wrapper');
+
+            selectWrappers.forEach(wrapper => {
+                const select = wrapper.querySelector('.custom-select');
+                const options = wrapper.querySelector('.custom-options');
+                const selectedText = select.querySelector('span');
+                const clearButton = select.querySelector('.custom-select-clear');
+
+                // Toggle dropdown
+                select.addEventListener('click', (e) => {
+                    if (!e.target.closest('.custom-select-clear')) {
+                        select.classList.toggle('open');
+                    }
+                });
+
+                // Clear selection
+                clearButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    selectedText.textContent = 'Select an option';
+                    select.classList.remove('has-value');
+                    wrapper.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Dispatch custom change event
+                    const event = new CustomEvent('change', {
+                        detail: {
+                            value: '',
+                            text: ''
+                        }
+                    });
+                    wrapper.dispatchEvent(event);
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!wrapper.contains(e.target)) {
+                        select.classList.remove('open');
+                    }
+                });
+
+                // Handle option selection
+                const optionElements = wrapper.querySelectorAll('.custom-option');
+                optionElements.forEach(option => {
+                    option.addEventListener('click', () => {
+                        optionElements.forEach(opt => opt.classList.remove('selected'));
+                        option.classList.add('selected');
+                        selectedText.textContent = option.textContent;
+                        select.classList.remove('open');
+                        select.classList.add('has-value');
+                        
+                        // Dispatch custom change event
+                        const event = new CustomEvent('change', {
+                            detail: {
+                                value: option.dataset.value,
+                                text: option.textContent
+                            }
+                        });
+                        wrapper.dispatchEvent(event);
+                    });
+                });
+
+                // Keyboard navigation
+                select.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        select.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

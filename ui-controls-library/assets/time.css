@@ -1,0 +1,194 @@
+/* Time Input Container */
+.custom-time-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 168px;
+}
+
+/* Time Input */
+.custom-time {
+  width: 100%;
+  min-height: 28px;
+  padding: 4px 76px 4px 12px;
+  background: linear-gradient(160deg, #ffffff, #f5f5f5);
+  border: 1px solid rgba(165, 165, 165, 0.2);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #606060;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-shadow: 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.05),
+    -2px -2px 4px rgba(255, 255, 255, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Clock Icon */
+.custom-time-clock {
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #606060;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 2;
+  background: linear-gradient(160deg, #ffffff, #f5f5f5);
+  border: 1px solid rgba(165, 165, 165, 0.1);
+  box-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.05),
+    -1px -1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.custom-time-clock:hover {
+  background: linear-gradient(160deg, #f0f0f0, #e8e8e8);
+}
+
+.custom-time-clock::before {
+  content: '🕐';
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Native time picker positioning */
+.custom-time::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.custom-time::placeholder {
+  color: #999;
+  opacity: 0.8;
+}
+
+.custom-time:focus {
+  outline: none;
+  background: linear-gradient(160deg, #ffffff, #f0f0f0);
+  border-color: rgba(153, 153, 153, 0.3);
+  box-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.06),
+    -3px -3px 6px rgba(255, 255, 255, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.custom-time:disabled {
+  background: linear-gradient(160deg, #f8f8f8, #f0f0f0);
+  border-color: rgba(204, 204, 204, 0.2);
+  color: rgba(153, 153, 153, 0.8);
+  cursor: not-allowed;
+  box-shadow: 
+    1px 1px 3px rgba(0, 0, 0, 0.03),
+    -1px -1px 3px rgba(255, 255, 255, 0.5);
+  text-shadow: none;
+}
+
+.custom-time:disabled ~ .custom-time-clock {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: linear-gradient(160deg, #f8f8f8, #f0f0f0);
+}
+
+/* Clear button */
+.custom-time-clear {
+  position: absolute;
+  right: 36px;
+  width: 24px;
+  height: 24px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #606060;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  z-index: 2;
+  background: linear-gradient(160deg, #ffffff, #f5f5f5);
+}
+
+.custom-time-clear::before {
+  content: '×';
+  line-height: 1;
+}
+
+.custom-time-clear:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.custom-time-wrapper.has-value .custom-time-clear {
+  display: flex;
+}
+
+/* Custom time spinner buttons */
+.custom-time-controls {
+  position: absolute;
+  right: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1;
+}
+
+.custom-time-button {
+  width: 16px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #f0f0f0, #e8e8e8);
+  border: 1px solid rgba(165, 165, 165, 0.2);
+  border-radius: 3px;
+  font-size: 8px;
+  color: #606060;
+  cursor: pointer;
+  box-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.05),
+    -1px -1px 2px rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+}
+
+.custom-time-button:hover {
+  background: linear-gradient(160deg, #e8e8e8, #e0e0e0);
+  box-shadow: 
+    1.5px 1.5px 3px rgba(0, 0, 0, 0.06),
+    -1.5px -1.5px 3px rgba(255, 255, 255, 0.8);
+}
+
+.custom-time-button:active {
+  background: linear-gradient(160deg, #e0e0e0, #d8d8d8);
+  box-shadow: 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.05),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.custom-time-button.increment {
+  border-radius: 3px 3px 1px 1px;
+}
+
+.custom-time-button.decrement {
+  border-radius: 1px 1px 3px 3px;
+}
+
+/* Adjust controls position when clear button is visible */
+.custom-time-wrapper.has-value .custom-time-controls {
+  right: 64px;
+} 

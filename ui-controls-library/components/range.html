@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Range Input</title>
+    <link rel="stylesheet" href="../assets/range.css">
+</head>
+<body>
+    <div class="custom-range-wrapper">
+        <div class="custom-range-values">
+            <span>0</span>
+            <span>50</span>
+            <span>100</span>
+        </div>
+        <input type="range" 
+               class="custom-range-input" 
+               min="0" 
+               max="100" 
+               step="1"
+               value="50">
+        <div class="custom-range-value">50</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rangeWrappers = document.querySelectorAll('.custom-range-wrapper');
+
+            rangeWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-range-input');
+                const valueDisplay = wrapper.querySelector('.custom-range-value');
+
+                function updateValue() {
+                    valueDisplay.textContent = input.value;
+                }
+
+                // Initialize value display
+                updateValue();
+
+                // Update value display on input change
+                input.addEventListener('input', updateValue);
+
+                // Handle keyboard navigation
+                input.addEventListener('keydown', (e) => {
+                    const step = input.hasAttribute('step') ? parseFloat(input.step) : 1;
+                    let newValue;
+
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        newValue = Math.min(parseFloat(input.max), parseFloat(input.value) + step);
+                        input.value = newValue;
+                        updateValue();
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        newValue = Math.max(parseFloat(input.min), parseFloat(input.value) - step);
+                        input.value = newValue;
+                        updateValue();
+                    }
+                });
+
+                // Handle disabled state
+                if (input.disabled) {
+                    wrapper.style.opacity = '0.6';
+                    wrapper.style.pointerEvents = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

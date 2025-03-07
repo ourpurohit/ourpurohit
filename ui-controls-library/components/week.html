@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week Control</title>
+    <link rel="stylesheet" href="../assets/week.css">
+</head>
+<body>
+    <div class="custom-week-wrapper">
+        <input type="week" class="custom-week" id="weekInput" placeholder="Select week">
+        <div class="custom-week-controls">
+            <div class="custom-week-button increment" title="Increment week">▲</div>
+            <div class="custom-week-button decrement" title="Decrement week">▼</div>
+        </div>
+        <div class="custom-week-clear" title="Clear"></div>
+        <div class="custom-week-calendar" title="Select week"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const weekWrappers = document.querySelectorAll('.custom-week-wrapper');
+
+            weekWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-week');
+                const clearButton = wrapper.querySelector('.custom-week-clear');
+                const incrementButton = wrapper.querySelector('.custom-week-button.increment');
+                const decrementButton = wrapper.querySelector('.custom-week-button.decrement');
+
+                // Update wrapper class based on input value
+                function updateWrapperClass() {
+                    if (input.value) {
+                        wrapper.classList.add('has-value');
+                    } else {
+                        wrapper.classList.remove('has-value');
+                    }
+                }
+
+                // Handle week increment/decrement
+                function adjustWeek(increment) {
+                    if (input.disabled) return;
+                    
+                    let currentDate = input.value ? new Date(input.value + '-1') : new Date();
+                    currentDate.setDate(currentDate.getDate() + (increment ? 7 : -7));
+                    
+                    // Format the date to week string (YYYY-Www)
+                    const year = currentDate.getFullYear();
+                    const weekNum = getWeekNumber(currentDate);
+                    input.value = `${year}-W${weekNum.toString().padStart(2, '0')}`;
+                    
+                    // Trigger events
+                    input.dispatchEvent(new Event('input'));
+                    input.dispatchEvent(new Event('change'));
+                }
+
+                // Get ISO week number
+                function getWeekNumber(date) {
+                    const d = new Date(date);
+                    d.setHours(0, 0, 0, 0);
+                    d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
+                    const week1 = new Date(d.getFullYear(), 0, 4);
+                    return 1 + Math.round(((d - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+                }
+
+                // Event Listeners
+                input.addEventListener('input', updateWrapperClass);
+                input.addEventListener('change', updateWrapperClass);
+
+                clearButton.addEventListener('click', () => {
+                    if (!input.disabled) {
+                        input.value = '';
+                        input.dispatchEvent(new Event('input'));
+                        input.dispatchEvent(new Event('change'));
+                    }
+                });
+
+                incrementButton.addEventListener('click', () => adjustWeek(true));
+                decrementButton.addEventListener('click', () => adjustWeek(false));
+
+                // Handle keyboard navigation
+                input.addEventListener('keydown', (e) => {
+                    if (input.disabled) return;
+                    
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        adjustWeek(true);
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        adjustWeek(false);
+                    }
+                });
+
+                // Initial state check
+                updateWrapperClass();
+            });
+        });
+    </script>
+</body>
+</html> 

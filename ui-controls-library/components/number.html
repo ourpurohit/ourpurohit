@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Number Input</title>
+    <link rel="stylesheet" href="../assets/number.css">
+</head>
+<body>
+    <div class="custom-number-wrapper">
+        <input type="number" 
+               class="custom-number-input" 
+               placeholder="Enter number"
+               min="0"
+               max="100"
+               step="1">
+        <div class="custom-number-controls">
+            <button class="custom-number-button increment">▲</button>
+            <button class="custom-number-button decrement">▼</button>
+        </div>
+        <div class="custom-number-clear"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const numberWrappers = document.querySelectorAll('.custom-number-wrapper');
+
+            numberWrappers.forEach(wrapper => {
+                const input = wrapper.querySelector('.custom-number-input');
+                const incrementBtn = wrapper.querySelector('.increment');
+                const decrementBtn = wrapper.querySelector('.decrement');
+                const clearBtn = wrapper.querySelector('.custom-number-clear');
+
+                function updateValue(newValue) {
+                    const min = input.hasAttribute('min') ? parseFloat(input.min) : -Infinity;
+                    const max = input.hasAttribute('max') ? parseFloat(input.max) : Infinity;
+                    const step = input.hasAttribute('step') ? parseFloat(input.step) : 1;
+                    
+                    // Ensure the value is within bounds and follows the step
+                    newValue = Math.min(max, Math.max(min, newValue));
+                    newValue = Math.round(newValue / step) * step;
+                    
+                    input.value = newValue;
+                    wrapper.classList.toggle('has-value', input.value !== '');
+
+                    // Dispatch input and change events
+                    const inputEvent = new Event('input', { bubbles: true });
+                    const changeEvent = new Event('change', { bubbles: true });
+                    input.dispatchEvent(inputEvent);
+                    input.dispatchEvent(changeEvent);
+                }
+
+                // Handle increment button
+                incrementBtn.addEventListener('click', () => {
+                    const currentValue = input.value === '' ? 0 : parseFloat(input.value);
+                    const step = input.hasAttribute('step') ? parseFloat(input.step) : 1;
+                    updateValue(currentValue + step);
+                });
+
+                // Handle decrement button
+                decrementBtn.addEventListener('click', () => {
+                    const currentValue = input.value === '' ? 0 : parseFloat(input.value);
+                    const step = input.hasAttribute('step') ? parseFloat(input.step) : 1;
+                    updateValue(currentValue - step);
+                });
+
+                // Handle clear button
+                clearBtn.addEventListener('click', () => {
+                    input.value = '';
+                    wrapper.classList.remove('has-value');
+                    input.focus();
+
+                    // Dispatch input and change events
+                    const inputEvent = new Event('input', { bubbles: true });
+                    const changeEvent = new Event('change', { bubbles: true });
+                    input.dispatchEvent(inputEvent);
+                    input.dispatchEvent(changeEvent);
+                });
+
+                // Handle input changes
+                input.addEventListener('input', () => {
+                    wrapper.classList.toggle('has-value', input.value !== '');
+                });
+
+                // Handle keyboard increment/decrement
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        incrementBtn.click();
+                    } else if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        decrementBtn.click();
+                    }
+                });
+
+                // Disable controls if input is disabled
+                if (input.disabled) {
+                    incrementBtn.disabled = true;
+                    decrementBtn.disabled = true;
+                    wrapper.style.opacity = '0.6';
+                    wrapper.style.pointerEvents = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

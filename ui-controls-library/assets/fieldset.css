@@ -1,0 +1,140 @@
+/* Fieldset Container */
+.custom-fieldset {
+  position: relative;
+  padding: 24px;
+  margin: 16px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f0f0f0;
+  box-shadow: 
+    inset 2px 2px 5px rgba(0, 0, 0, 0.05),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Fieldset Legend */
+.custom-fieldset-legend {
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  background: #f0f0f0;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 
+    2px 2px 5px rgba(0, 0, 0, 0.05),
+    -2px -2px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Fieldset Content */
+.custom-fieldset-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Fieldset Row */
+.custom-fieldset-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Fieldset Column */
+.custom-fieldset-col {
+  flex: 1;
+}
+
+/* Fieldset Types */
+.custom-fieldset.primary {
+  background: linear-gradient(145deg, #e6f0ff, #f0f7ff);
+  border-color: #1976d2;
+}
+
+.custom-fieldset.primary .custom-fieldset-legend {
+  border-color: #1976d2;
+}
+
+.custom-fieldset.success {
+  background: linear-gradient(145deg, #e6ffe6, #f0fff0);
+  border-color: #2e7d32;
+}
+
+.custom-fieldset.success .custom-fieldset-legend {
+  border-color: #2e7d32;
+}
+
+.custom-fieldset.warning {
+  background: linear-gradient(145deg, #fff6e6, #fffaf0);
+  border-color: #f57c00;
+}
+
+.custom-fieldset.warning .custom-fieldset-legend {
+  border-color: #f57c00;
+}
+
+.custom-fieldset.error {
+  background: linear-gradient(145deg, #ffe6e6, #fff0f0);
+  border-color: #d32f2f;
+}
+
+.custom-fieldset.error .custom-fieldset-legend {
+  border-color: #d32f2f;
+}
+
+/* Disabled State */
+.custom-fieldset.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Compact Variant */
+.custom-fieldset.compact {
+  padding: 16px;
+}
+
+.custom-fieldset.compact .custom-fieldset-legend {
+  font-size: 14px;
+  padding: 0 8px;
+  margin-bottom: 12px;
+}
+
+/* Required Legend */
+.custom-fieldset-legend.required::after {
+  content: "*";
+  color: #d32f2f;
+  margin-left: 4px;
+}
+
+/* Animation */
+.custom-fieldset {
+  transition: all 0.3s ease;
+}
+
+.custom-fieldset:hover {
+  box-shadow: 
+    inset 3px 3px 7px rgba(0, 0, 0, 0.07),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.7);
+}
+
+/* Focus State */
+.custom-fieldset:focus-within {
+  box-shadow: 
+    inset 3px 3px 7px rgba(0, 0, 0, 0.07),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.7);
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-fieldset-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .custom-fieldset {
+    padding: 16px;
+  }
+} 
