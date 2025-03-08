@@ -46,10 +46,15 @@ section, summary, time, mark, audio, video {
     font-size: 30px;
     font-style: normal;
   }
-
+ 
   .ponnala-regular-large {
     font-family: "Ponnala", system-ui;
     font-size: 30px;
+  }
+
+  .ponnala-regular-medium {
+    font-family: "Ponnala", system-ui;
+    font-size: 25px;
   }
 
   .ponnala-regular-xlarge {
