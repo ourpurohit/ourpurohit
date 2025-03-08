@@ -29,13 +29,27 @@ section, summary, time, mark, audio, video {
   .ramabhadra-regular {
     font-family: "Ramabhadra", sans-serif;
     font-weight: 400;
-    size: 45px;
+    font-size: 22px;
+    font-style: normal;
+  }
+
+  .ramabhadra-regular-l {
+    font-family: "Ramabhadra", sans-serif;
+    font-weight: 400;
+    font-size: 26px;
     font-style: normal;
   }
 
   .ponnala-regular {
     font-family: "Ponnala", system-ui;
     font-weight: 400;
+    font-style: normal;
+  }
+
+  .ponnala-regular-l {
+    font-family: "Ponnala", system-ui;
+    font-weight: 400;
+    font-size: 30px;
     font-style: normal;
   }
 
