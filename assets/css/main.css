@@ -52,6 +52,10 @@ section, summary, time, mark, audio, video {
     font-size: 30px;
   }
 
+  .ponnala-regular-xlarge {
+    font-family: "Ponnala", system-ui;
+    font-size: 40px;
+  }
   .roboto-flex {
     font-family: "Roboto Flex", sans-serif;
     font-optical-sizing: auto;
